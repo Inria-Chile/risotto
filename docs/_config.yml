@@ -3,7 +3,7 @@ output: web
 topnav_title: risotto
 site_title: risotto
 company_name: Inria
-description: RISOTTO: Research Intelligent Support and Organization TOol for fighting against COVID-19
+description: Research Intelligent Support and Organization TOol for fighting against COVID-19
 # Set to false to disable KaTeX math
 use_math: true
 # Add Google analytics id if you have one and want to use it here
