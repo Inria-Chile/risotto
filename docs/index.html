@@ -1,12 +1,12 @@
 ---
 
-title: Project name here
+title: Title
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Summary description here."
-description: "Summary description here."
+summary: "summary"
+description: "summary"
 ---
 <!--
 
@@ -29,70 +29,52 @@ description: "Summary description here."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
+<h1 id="&#127834;-RISOTTO:-Research-Intelligent-Support-and-Organization-TOol-against-COVID-19">&#127834; RISOTTO: Research Intelligent Support and Organization TOol against COVID-19<a class="anchor-link" href="#&#127834;-RISOTTO:-Research-Intelligent-Support-and-Organization-TOol-against-COVID-19"> </a></h1><p><img src="https://img.shields.io/badge/python-3.x-green.svg" alt="Python 3.x">
+<a href="https://colab.research.google.com/github/Inria-Chile/risotto"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+<a href="https://cecill.info/licences.en.html"><img src="https://img.shields.io/badge/license-CeCILL--B-orange" alt="License: CeCILL-B"></a></p>
+<h1 id="Context">Context<a class="anchor-link" href="#Context"> </a></h1><p>One of the positive implications of the Covid-19 outbreak is that it has generated a massive amount of focused scientific effort that is disseminated as research papers. However, because of the novel and massive amount of information that is being generated, traditional hand-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results in an adequate manner.</p>
+<p>So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.</p>
+<p>Consequently, our proposal is to generate as fast as possible a research support tool that applies the state of the art unsupervised NLP and ML methods that will able to:</p>
+<ul>
+<li>analyze all research papers available from global online sources,</li>
+<li>automatically detect hierarchical groups of these papers and topics,</li>
+<li>present leading "popular" papers as well as potential breakthroughs and new results, and</li>
+<li>provide a visualization tool to understand how is the progress doing what areas are receiving more attention in time, etc.</li>
+</ul>
+<p><strong>Note:</strong> It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install your_project_name</code></p>
+<h1 id="How-to-contribute">How to contribute<a class="anchor-link" href="#How-to-contribute"> </a></h1><h2 id="How-to-get-started">How to get started<a class="anchor-link" href="#How-to-get-started"> </a></h2><p>Before anything else, please install the git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:</p>
+
+<pre><code>nbdev_install_git_hooks</code></pre>
+<h2 id="Did-you-find-a-bug?">Did you find a bug?<a class="anchor-link" href="#Did-you-find-a-bug?"> </a></h2><ul>
+<li>Ensure the bug was not already reported by searching on GitHub under Issues.</li>
+<li>If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.</li>
+<li>Be sure to add the complete error messages.</li>
+</ul>
+<h4 id="Did-you-write-a-patch-that-fixes-a-bug?">Did you write a patch that fixes a bug?<a class="anchor-link" href="#Did-you-write-a-patch-that-fixes-a-bug?"> </a></h4><ul>
+<li>Open a new GitHub pull request with the patch.</li>
+<li>Ensure that your PR includes a test that fails without your patch, and pass with it.</li>
+<li>Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.</li>
+</ul>
+<h2 id="PR-submission-guidelines">PR submission guidelines<a class="anchor-link" href="#PR-submission-guidelines"> </a></h2><ul>
+<li>Keep each PR focused. While it's more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.</li>
+<li>Do not mix style changes/fixes with "functional" changes. It's very difficult to review such PRs and it most likely get rejected.</li>
+<li>Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.</li>
+<li>Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.</li>
+<li>If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.</li>
+</ul>
+<h2 id="Do-you-want-to-contribute-to-the-documentation?">Do you want to contribute to the documentation?<a class="anchor-link" href="#Do-you-want-to-contribute-to-the-documentation?"> </a></h2><ul>
+<li>Docs are automatically created from the notebooks in the nbs folder.</li>
+</ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
-
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 </div>
  
 
