@@ -1,14 +1,13 @@
-# Title
-> summary
+# 🍚 RISOTTO
+> Research Intelligent Support and Organization TOol against COVID-19 
 
-
-# 🍚 RISOTTO: Research Intelligent Support and Organization TOol against COVID-19
 
 ![Python 3.x](https://img.shields.io/badge/python-3.x-green.svg)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Inria-Chile/risotto)
 [![License: CeCILL-B](https://img.shields.io/badge/license-CeCILL--B-orange)](https://cecill.info/licences.en.html)
 
 # Context
+
 One of the positive implications of the Covid-19 outbreak is that it has generated a massive amount of focused scientific effort that is disseminated as research papers. However, because of the novel and massive amount of information that is being generated, traditional hand-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results in an adequate manner.
 
 So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem. 
@@ -20,7 +19,6 @@ Consequently, our proposal is to generate as fast as possible a research support
  - provide a visualization tool to understand how is the progress doing what areas are receiving more attention in time, etc.
 
 **Note:** It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.
- 
 
 # How to contribute
 
