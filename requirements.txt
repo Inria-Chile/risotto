@@ -1,4 +1,6 @@
 pandas
-tqdm
 matplotlib
 seaborn
+kaggle
+fastprogress
+# tqdm
