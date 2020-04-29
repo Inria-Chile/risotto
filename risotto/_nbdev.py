@@ -2,9 +2,15 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"get_id_paths_dicts": "01_references.ipynb",
+         "BasePaper": "01_references.ipynb",
+         "PDFPaper": "01_references.ipynb",
+         "PMCPaper": "01_references.ipynb",
+         "load_papers_from_metadata_file": "01_references.ipynb",
+         "paper_as_markdown": "01_references.ipynb",
+         "build_papers_reference_graph": "01_references.ipynb"}
 
-modules = []
+modules = ["references.py"]
 
 doc_url = "https://lmarti.github.io/risotto/"
 
