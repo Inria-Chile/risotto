@@ -11,7 +11,13 @@ entries:
       url: /
     - output: web,pdf
       title: Title
-      url: /references
+      url: /hierarchical_topic_modelling
+    - output: web,pdf
+      title: Representations, LDA and topics in CORD-19
+      url: /representations_and_lda
+    - output: web,pdf
+      title: RISOTTO
+      url: /risotto_gui
     output: web
     title: risotto
   output: web

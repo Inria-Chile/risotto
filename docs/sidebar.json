@@ -1,6 +1,8 @@
 {
   "risotto": {
     "Overview": "/",
-    "Title": "/references"
+    "Title": "/hierarchical_topic_modelling",
+    "Representations, LDA and topics in CORD-19": "/representations_and_lda",
+    "RISOTTO": "/risotto_gui"
   }
 }

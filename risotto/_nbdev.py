@@ -8,9 +8,13 @@ index = {"get_id_paths_dicts": "01_references.ipynb",
          "PMCPaper": "01_references.ipynb",
          "load_papers_from_metadata_file": "01_references.ipynb",
          "paper_as_markdown": "01_references.ipynb",
-         "build_papers_reference_graph": "01_references.ipynb"}
+         "build_papers_reference_graph": "01_references.ipynb",
+         "nlp": "02_representations_and_lda.ipynb",
+         "process_papers_file_contents": "02_representations_and_lda.ipynb",
+         "tokenizer": "02_representations_and_lda.ipynb"}
 
-modules = ["references.py"]
+modules = ["references.py",
+           "lda.py"]
 
 doc_url = "https://lmarti.github.io/risotto/"
 
