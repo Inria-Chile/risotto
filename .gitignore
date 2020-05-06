@@ -1,3 +1,9 @@
+# Ignore pickled files
+*.pkl
+
+# Ginore virtualenvs
+venv-*
+
 *.bak
 .gitattributes
 .last_checked
