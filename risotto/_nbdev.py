@@ -11,7 +11,8 @@ index = {"get_id_paths_dicts": "01_references.ipynb",
          "build_papers_reference_graph": "01_references.ipynb",
          "nlp": "02_representations_and_lda.ipynb",
          "process_papers_file_contents": "02_representations_and_lda.ipynb",
-         "tokenizer": "02_representations_and_lda.ipynb"}
+         "tokenizer": "02_representations_and_lda.ipynb",
+         "print_topic_words": "02_representations_and_lda.ipynb"}
 
 modules = ["references.py",
            "lda.py"]
