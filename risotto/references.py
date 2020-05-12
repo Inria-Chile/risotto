@@ -93,6 +93,14 @@ class BasePaper:
     def bib_entries(self):
         return self._file_contents["bib_entries"]
 
+    @property
+    def doi(self):
+        return self._metadata_row["doi"]
+
+    @property
+    def url(self):
+        return self._metadata_row["url"]
+
     def register_reference(self, reference):
         self._references.append(reference)
         reference.register_referenced(self)
@@ -111,13 +119,15 @@ class PMCPaper(BasePaper):
 # Cell
 def load_papers_from_metadata_file(cord19_dataset_folder):
     'Loads papers by reading the `metadata.csv` file present in the dataset.'
-    metadata_df= pd.read_csv(f"{cord19_dataset_folder}/metadata.csv", index_col="cord_uid")
+    metadata_df = pd.read_csv(f"{cord19_dataset_folder}/metadata.csv",
+                              index_col="cord_uid")
     pdf_dict = get_id_paths_dicts("pdf", cord19_dataset_folder)
-    pmc_dict = get_id_paths_dicts("pmc",cord19_dataset_folder)
+    pmc_dict = get_id_paths_dicts("pmc", cord19_dataset_folder)
 
     papers = []
     not_found = []
-    for idx, row in progress_bar(metadata_df.iterrows(), total=len(metadata_df)):
+    for idx, row in progress_bar(metadata_df.iterrows(),
+                                 total=len(metadata_df)):
         pmc_id = row["pmcid"]
         shas = row["sha"]
         paper = None
@@ -134,7 +144,8 @@ def load_papers_from_metadata_file(cord19_dataset_folder):
                     paper = PDFPaper(row, pdf_path)
                     break
 
-        if paper is None and (row["has_pdf_parse"] or row["has_pmc_xml_parse"]):
+        if paper is None and (row["has_pdf_parse"]
+                              or row["has_pmc_xml_parse"]):
             not_found.append(idx)
         if paper is not None:
             papers.append(paper)
