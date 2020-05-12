@@ -795,6 +795,14 @@ Number of PMC files with parse JSON 22263
     <span class="k">def</span> <span class="nf">bib_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_contents</span><span class="p">[</span><span class="s2">&quot;bib_entries&quot;</span><span class="p">]</span>
     
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">doi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_row</span><span class="p">[</span><span class="s2">&quot;doi&quot;</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_row</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+    
     <span class="k">def</span> <span class="nf">register_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_references</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
         <span class="n">reference</span><span class="o">.</span><span class="n">register_referenced</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -863,7 +871,7 @@ Number of PMC files with parse JSON 22263
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PDFPaper" class="doc_header"><code>class</code> <code>PDFPaper</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L104" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PDFPaper</code>(<strong><code>metadata_row</code></strong>, <strong><code>file_path</code></strong>) :: <a href="/risotto/references#BasePaper"><code>BasePaper</code></a></p>
+<h2 id="PDFPaper" class="doc_header"><code>class</code> <code>PDFPaper</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L112" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PDFPaper</code>(<strong><code>metadata_row</code></strong>, <strong><code>file_path</code></strong>) :: <a href="/risotto/references#BasePaper"><code>BasePaper</code></a></p>
 </blockquote>
 
 </div>
@@ -905,7 +913,7 @@ Number of PMC files with parse JSON 22263
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PMCPaper" class="doc_header"><code>class</code> <code>PMCPaper</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L108" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PMCPaper</code>(<strong><code>metadata_row</code></strong>, <strong><code>file_path</code></strong>) :: <a href="/risotto/references#BasePaper"><code>BasePaper</code></a></p>
+<h2 id="PMCPaper" class="doc_header"><code>class</code> <code>PMCPaper</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L116" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PMCPaper</code>(<strong><code>metadata_row</code></strong>, <strong><code>file_path</code></strong>) :: <a href="/risotto/references#BasePaper"><code>BasePaper</code></a></p>
 </blockquote>
 
 </div>
@@ -927,21 +935,23 @@ Number of PMC files with parse JSON 22263
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_papers_from_metadata_file</span><span class="p">(</span><span class="n">cord19_dataset_folder</span><span class="p">):</span>
     <span class="s1">&#39;Loads papers by reading the `metadata.csv` file present in the dataset.&#39;</span>
-    <span class="n">metadata_df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cord19_dataset_folder</span><span class="si">}</span><span class="s2">/metadata.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;cord_uid&quot;</span><span class="p">)</span>
+    <span class="n">metadata_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cord19_dataset_folder</span><span class="si">}</span><span class="s2">/metadata.csv&quot;</span><span class="p">,</span>
+                              <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;cord_uid&quot;</span><span class="p">)</span>
     <span class="n">pdf_dict</span> <span class="o">=</span> <span class="n">get_id_paths_dicts</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">,</span> <span class="n">cord19_dataset_folder</span><span class="p">)</span>
-    <span class="n">pmc_dict</span> <span class="o">=</span> <span class="n">get_id_paths_dicts</span><span class="p">(</span><span class="s2">&quot;pmc&quot;</span><span class="p">,</span><span class="n">cord19_dataset_folder</span><span class="p">)</span>
-    
+    <span class="n">pmc_dict</span> <span class="o">=</span> <span class="n">get_id_paths_dicts</span><span class="p">(</span><span class="s2">&quot;pmc&quot;</span><span class="p">,</span> <span class="n">cord19_dataset_folder</span><span class="p">)</span>
+
     <span class="n">papers</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">not_found</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">progress_bar</span><span class="p">(</span><span class="n">metadata_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">metadata_df</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">progress_bar</span><span class="p">(</span><span class="n">metadata_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span>
+                                 <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">metadata_df</span><span class="p">)):</span>
         <span class="n">pmc_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;pmcid&quot;</span><span class="p">]</span>
         <span class="n">shas</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;sha&quot;</span><span class="p">]</span>
         <span class="n">paper</span> <span class="o">=</span> <span class="kc">None</span>
-        
+
         <span class="k">if</span> <span class="n">pmc_id</span> <span class="ow">in</span> <span class="n">pmc_dict</span><span class="p">:</span>
             <span class="n">pmc_path</span> <span class="o">=</span> <span class="n">pmc_dict</span><span class="p">[</span><span class="n">pmc_id</span><span class="p">]</span>
             <span class="n">paper</span> <span class="o">=</span> <span class="n">PMCPaper</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">pmc_path</span><span class="p">)</span>
-            
+
         <span class="k">if</span> <span class="n">paper</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">shas</span><span class="p">):</span>
             <span class="n">shas_splitted</span> <span class="o">=</span> <span class="n">shas</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;; &quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">sha</span> <span class="ow">in</span> <span class="n">shas_splitted</span><span class="p">:</span>
@@ -949,12 +959,13 @@ Number of PMC files with parse JSON 22263
                     <span class="n">pdf_path</span> <span class="o">=</span> <span class="n">pdf_dict</span><span class="p">[</span><span class="n">sha</span><span class="p">]</span>
                     <span class="n">paper</span> <span class="o">=</span> <span class="n">PDFPaper</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">pdf_path</span><span class="p">)</span>
                     <span class="k">break</span>
-        
-        <span class="k">if</span> <span class="n">paper</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;has_pdf_parse&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;has_pmc_xml_parse&quot;</span><span class="p">]):</span>
+
+        <span class="k">if</span> <span class="n">paper</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;has_pdf_parse&quot;</span><span class="p">]</span>
+                              <span class="ow">or</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;has_pmc_xml_parse&quot;</span><span class="p">]):</span>
             <span class="n">not_found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">paper</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">papers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">paper</span><span class="p">)</span>
-            
+
     <span class="k">return</span> <span class="n">papers</span><span class="p">,</span> <span class="n">not_found</span>
 </pre></div>
 
@@ -976,7 +987,7 @@ Number of PMC files with parse JSON 22263
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="load_papers_from_metadata_file" class="doc_header"><code>load_papers_from_metadata_file</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L112" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>load_papers_from_metadata_file</code>(<strong><code>cord19_dataset_folder</code></strong>)</p>
+<h4 id="load_papers_from_metadata_file" class="doc_header"><code>load_papers_from_metadata_file</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L120" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>load_papers_from_metadata_file</code>(<strong><code>cord19_dataset_folder</code></strong>)</p>
 </blockquote>
 <p>Loads papers by reading the <code>metadata.csv</code> file present in the dataset.</p>
 
@@ -1079,7 +1090,9 @@ Number of PMC files with parse JSON 22263
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mask_1</span> <span class="o">=</span> <span class="n">metadata_df</span><span class="p">[</span><span class="s2">&quot;has_pdf_parse&quot;</span><span class="p">]</span>
 <span class="n">mask_2</span> <span class="o">=</span> <span class="n">metadata_df</span><span class="p">[</span><span class="s2">&quot;has_pmc_xml_parse&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="p">(</span><span class="n">mask_1</span> <span class="o">|</span> <span class="n">mask_2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1"> files with either parsed PDF or PMC XML.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="p">(</span><span class="n">mask_1</span> <span class="o">|</span> <span class="n">mask_2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1"> files with either parsed PDF or PMC XML.&#39;</span>
+<span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1146,7 +1159,7 @@ Number of PMC files with parse JSON 22263
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="paper_as_markdown" class="doc_header"><code>paper_as_markdown</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>paper_as_markdown</code>(<strong><code>paper</code></strong>)</p>
+<h4 id="paper_as_markdown" class="doc_header"><code>paper_as_markdown</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L156" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>paper_as_markdown</code>(<strong><code>paper</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1224,7 +1237,7 @@ Number of PMC files with parse JSON 22263
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">paper_titles</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">paper</span> <span class="ow">in</span> <span class="n">progress_bar</span><span class="p">(</span><span class="n">papers</span><span class="p">):</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">paper</span><span class="o">.</span><span class="n">title</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="c1"># coping with NaNs in titles</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># coping with NaNs in titles</span>
         <span class="n">paper_titles</span><span class="p">[</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">paper</span>
 </pre></div>
 
@@ -1721,7 +1734,7 @@ The following cells will plot the number of references distribution.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_papers_reference_graph" class="doc_header"><code>build_papers_reference_graph</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L157" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_papers_reference_graph</code>(<strong><code>papers</code></strong>)</p>
+<h4 id="build_papers_reference_graph" class="doc_header"><code>build_papers_reference_graph</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/references.py#L168" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_papers_reference_graph</code>(<strong><code>papers</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -2091,7 +2104,10 @@ The following cells will plot the number of references distribution.</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Converted 00_downloader.ipynb.
 Converted 01_references.ipynb.
-Converted 02_representations_LDA.ipynb.
+Converted 02_representations_and_lda.ipynb.
+Converted 03_hierarchical_topic_modelling.ipynb.
+Converted 99_risotto_gui.ipynb.
+Converted Untitled.ipynb.
 Converted index.ipynb.
 </pre>
 </div>

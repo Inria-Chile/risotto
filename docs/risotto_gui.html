@@ -1,12 +1,12 @@
 ---
 
-title: RISOTTO
+title: Title
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "A work document for testing a web GUI for RISOTTO"
-description: "A work document for testing a web GUI for RISOTTO"
+summary: "summary"
+description: "summary"
 ---
 <!--
 
@@ -27,16 +27,6 @@ description: "A work document for testing a web GUI for RISOTTO"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div align='left' style="width:29%;overflow:hidden;">
-<a href='http://inria.fr'>
-{% include image.html alt="Inria logo" title="Inria logo" file="https://github.com/lmarti/jupyter_custom/raw/master/imgs/inr_logo_rouge.png" %}
-</a>
-</div>
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -44,7 +34,8 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install -q -r requirements.txt
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">AppLayout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Tab</span><span class="p">,</span> <span class="n">ToggleButtons</span><span class="p">,</span> <span class="n">GridspecLayout</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HBox</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">jslink</span><span class="p">,</span> <span class="n">IntText</span><span class="p">,</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">Accordion</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">HTML</span>
 </pre></div>
 
     </div>
@@ -61,55 +52,7 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">risotto.references</span> <span class="kn">import</span> <span class="n">load_papers_from_metadata_file</span><span class="p">,</span> <span class="n">build_papers_reference_graph</span><span class="p">,</span> <span class="n">paper_as_markdown</span>
-<span class="kn">from</span> <span class="nn">fastprogress.fastprogress</span> <span class="kn">import</span> <span class="n">progress_bar</span>
-
-<span class="kn">from</span> <span class="nn">risotto.lda</span> <span class="kn">import</span> <span class="n">process_papers_file_contents</span><span class="p">,</span> <span class="n">tokenizer</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
-
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-
-<span class="kn">import</span> <span class="nn">scispacy</span>
-<span class="kn">import</span> <span class="nn">en_core_sci_sm</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cord19_dataset_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./datasets/CORD-19-research-challenge&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">papers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_papers_from_metadata_file</span><span class="p">(</span><span class="n">cord19_dataset_folder</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 
     </div>
@@ -121,28 +64,11 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="output_area">
 
-
-<div class="output_html rendered_html output_subarea ">
-
-    <div>
-        <style>
-            /* Turns off some styling */
-            progress {
-                /* gets rid of default border in Firefox and Opera. */
-                border: none;
-                /* Needs to be in here for Safari polyfill so background images work as expected. */
-                background-size: auto;
-            }
-            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-                background: #F44336;
-            }
-        </style>
-      <progress value='57366' class='' max='57366' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [57366/57366 16:15<00:00]
-    </div>
-    
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/lmarti/.pyenv/versions/risotto/lib/python3.8/site-packages/pandas/compat/__init__.py:117: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
+  warnings.warn(msg)
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -158,7 +84,58 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">papers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bib_entries</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">paper_topics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s1">&#39;data.hdf&#39;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;paper_topics&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># paper_topics</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">topics</span> <span class="o">=</span> <span class="n">paper_topics</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">topics</span>
 </pre></div>
 
     </div>
@@ -173,454 +150,7 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;BIBREF0&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;FEBS Lett.&#39;,
-  &#39;volume&#39;: &#39;301&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;207-214&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF1&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Acta Crystallogr. D&#39;,
-  &#39;volume&#39;: &#39;50&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;760-763&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF2&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Virol.&#39;,
-  &#39;volume&#39;: &#39;65&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;6881-6891&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF3&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Virol.&#39;,
-  &#39;volume&#39;: &#39;67&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1-8&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF4&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Proc. Natl Acad. Sci. USA&#39;,
-  &#39;volume&#39;: &#39;90&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1716-1720&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF5&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Biochemistry&#39;,
-  &#39;volume&#39;: &#39;14&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;4943-4952&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF6&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Mol. Cell&#39;,
-  &#39;volume&#39;: &#39;5&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;311-320&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF7&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Virol.&#39;,
-  &#39;volume&#39;: &#39;71&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;3129-3137&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF8&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Exp. Med.&#39;,
-  &#39;volume&#39;: &#39;122&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;467-481&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF9&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Semin. Cancer Biol.&#39;,
-  &#39;volume&#39;: &#39;9&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;67-81&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF10&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Mol. Biol.&#39;,
-  &#39;volume&#39;: &#39;238&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;528-539&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF11&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Exp. Cell Res.&#39;,
-  &#39;volume&#39;: &#39;252&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;243-249&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF12&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Proc. Natl Acad. Sci. USA&#39;,
-  &#39;volume&#39;: &#39;95&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;2509-2514&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF13&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Protein Sci.&#39;,
-  &#39;volume&#39;: &#39;3&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1927-1937&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF14&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Cell Sci.&#39;,
-  &#39;volume&#39;: &#39;112&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;4193-4205&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF15&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Biol. Chem.&#39;,
-  &#39;volume&#39;: &#39;274&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;335-344&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF16&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Oncogene&#39;,
-  &#39;volume&#39;: &#39;18&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;5563-5572&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF17&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Nature&#39;,
-  &#39;volume&#39;: &#39;360&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;232-239&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF18&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Acta Crystallogr. A&#39;,
-  &#39;volume&#39;: &#39;47&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;110-119&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF19&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Mol. Biol.&#39;,
-  &#39;volume&#39;: &#39;312&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;711-720&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF20&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;EMBO J.&#39;,
-  &#39;volume&#39;: &#39;18&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;6249-6259&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF21&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Appl. Crystallogr.&#39;,
-  &#39;volume&#39;: &#39;24&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;924-950&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF22&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Science&#39;,
-  &#39;volume&#39;: &#39;275&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1320-1323&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF23&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Nature&#39;,
-  &#39;volume&#39;: &#39;393&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;648-659&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF24&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Cell&#39;,
-  &#39;volume&#39;: &#39;84&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;155-164&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF25&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Immunol.&#39;,
-  &#39;volume&#39;: &#39;163&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1363-1370&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF26&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Immunol.&#39;,
-  &#39;volume&#39;: &#39;168&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1028-1035&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF27&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Virol.&#39;,
-  &#39;volume&#39;: &#39;68&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;4525-4537&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF28&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Proteins&#39;,
-  &#39;volume&#39;: &#39;11&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;281-296&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF29&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Gen. Virol.&#39;,
-  &#39;volume&#39;: &#39;77&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1683-1692&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF30&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;&#39;,
-  &#39;volume&#39;: &#39;&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;307-326&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF31&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Virology&#39;,
-  &#39;volume&#39;: &#39;229&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;336-348&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF32&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Mol. Cell. Biol.&#39;,
-  &#39;volume&#39;: &#39;9&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;377-383&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF33&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Exp. Med.&#39;,
-  &#39;volume&#39;: &#39;190&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;331-340&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF34&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Mol. Immunol.&#39;,
-  &#39;volume&#39;: &#39;34&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1067-1082&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF35&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Curr. Opin. Struct. Biol.&#39;,
-  &#39;volume&#39;: &#39;5&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;735-743&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF36&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Biol. Chem.&#39;,
-  &#39;volume&#39;: &#39;275&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;26935-26943&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF37&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Virus Res.&#39;,
-  &#39;volume&#39;: &#39;2&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;317-328&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF38&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Exp. Med.&#39;,
-  &#39;volume&#39;: &#39;191&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1555-1567&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF39&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Mol. Microbiol.&#39;,
-  &#39;volume&#39;: &#39;34&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;538-551&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF40&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Mol. Microbiol.&#39;,
-  &#39;volume&#39;: &#39;36&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;784-795&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF41&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Trends Biochem. Sci.&#39;,
-  &#39;volume&#39;: &#39;27&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;122-126&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF42&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Immunol. Rev.&#39;,
-  &#39;volume&#39;: &#39;163&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;197-215&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF43&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Nature&#39;,
-  &#39;volume&#39;: &#39;348&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;411-418&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF44&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;&#39;,
-  &#39;volume&#39;: &#39;&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: None,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF45&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Cell&#39;,
-  &#39;volume&#39;: &#39;97&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;791-803&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF46&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Proc. Natl Acad. Sci. USA&#39;,
-  &#39;volume&#39;: &#39;98&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;10799-10804&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF47&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Blood&#39;,
-  &#39;volume&#39;: &#39;98&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1469-1479&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF48&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Virol.&#39;,
-  &#39;volume&#39;: &#39;72&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;1941-1948&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF49&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Nature&#39;,
-  &#39;volume&#39;: &#39;387&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;527-530&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF50&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Virol.&#39;,
-  &#39;volume&#39;: &#39;72&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;7237-7244&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF51&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Biol. Reprod.&#39;,
-  &#39;volume&#39;: &#39;64&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;90-99&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF52&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Nature&#39;,
-  &#39;volume&#39;: &#39;387&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;312-315&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF53&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;EMBO J.&#39;,
-  &#39;volume&#39;: &#39;18&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;2911-2922&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF54&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;J. Mol. Biol.&#39;,
-  &#39;volume&#39;: &#39;278&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;457-479&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}},
- &#39;BIBREF55&#39;: {&#39;title&#39;: &#39;&#39;,
-  &#39;authors&#39;: [],
-  &#39;year&#39;: None,
-  &#39;venue&#39;: &#39;Science&#39;,
-  &#39;volume&#39;: &#39;267&#39;,
-  &#39;issn&#39;: &#39;&#39;,
-  &#39;pages&#39;: &#39;383-386&#39;,
-  &#39;other_ids&#39;: {&#39;DOI&#39;: []}}}</pre>
+<pre>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=object)</pre>
 </div>
 
 </div>
@@ -638,216 +168,11 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">build_papers_reference_graph</span><span class="p">(</span><span class="n">papers</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pageranks</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">pageranks</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;risotto.references.PMCPaper at 0x11219ff40&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">docs</span> <span class="o">=</span> <span class="n">process_papers_file_contents</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pageranks</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-
-    <div>
-        <style>
-            /* Turns off some styling */
-            progress {
-                /* gets rid of default border in Firefox and Opera. */
-                border: none;
-                /* Needs to be in here for Safari polyfill so background images work as expected. */
-                background-size: auto;
-            }
-            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-                background: #F44336;
-            }
-        </style>
-      <progress value='44648' class='' max='44648' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [44648/44648 00:53<00:00]
-    </div>
-    
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">vectorized_docs</span> <span class="o">=</span> <span class="n">count_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">vectorized_docs</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">AppLayout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">jslink</span><span class="p">,</span> <span class="n">IntText</span><span class="p">,</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">Accordion</span><span class="p">,</span> <span class="n">Text</span>
-
-<span class="k">def</span> <span class="nf">create_expanded_button</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">button_style</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_expanded_button</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">button_style</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="n">button_style</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">write_gpickle</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">cord19_dataset_folder</span><span class="o">/</span><span class="s1">&#39;pagerank.gml&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pageranks</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>44648</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -882,7 +207,9 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">accordion</span> <span class="o">=</span> <span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">IntSlider</span><span class="p">(),</span> <span class="n">Text</span><span class="p">()])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Topic 1&#39;</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Topic 2&#39;</span><span class="p">)</span>
+<span class="n">accordion</span> <span class="o">=</span> <span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">])</span>
 <span class="n">accordion</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Slider&#39;</span><span class="p">)</span>
 <span class="n">accordion</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Text&#39;</span><span class="p">)</span>
 </pre></div>
@@ -901,10 +228,177 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">header_button</span><span class="p">,</span>
-          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">accordion</span><span class="p">,</span>
-          <span class="n">center</span><span class="o">=</span><span class="n">center_button</span><span class="p">,</span>
-          <span class="n">right_sidebar</span><span class="o">=</span><span class="n">right_button</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">paper_grid</span><span class="p">(</span><span class="n">paper</span><span class="p">):</span>
+    
+    <span class="n">reference</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">paper</span><span class="o">.</span><span class="n">authors</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">paper</span><span class="o">.</span><span class="n">pub_date</span><span class="si">}</span><span class="s1">) </span><span class="si">{</span><span class="n">paper</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">abstract</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">paper</span><span class="o">.</span><span class="n">abstract</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">reference</span><span class="p">,</span> <span class="n">abstract</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">papers_vboxes</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">topic_id</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+    <span class="n">papers</span> <span class="o">=</span> <span class="n">paper_topics</span><span class="p">[</span><span class="n">paper_topics</span><span class="o">.</span><span class="n">topic</span> <span class="o">==</span> <span class="n">topic_id</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    
+    <span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="n">paper_grid</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">papers</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+    
+    <span class="n">contents</span> <span class="o">=</span> <span class="p">[</span><span class="n">Label</span><span class="p">(</span><span class="n">abstract</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">abstract</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">]</span>
+    <span class="n">accordion</span> <span class="o">=</span> <span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">contents</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
+        <span class="n">accordion</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">papers_vboxes</span><span class="p">[</span><span class="n">topic_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">accordion</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">Tab</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">papers_vboxes</span><span class="p">[</span><span class="n">topic_id</span><span class="p">]</span> <span class="k">for</span> <span class="n">topic_id</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">papers_vboxes</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="o">.</span><span class="n">children</span><span class="p">)):</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Topic </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Accordion</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">contents</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">updater</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;owner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">topic_id</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;owner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">papers_vboxes</span><span class="p">[</span><span class="n">topic_id</span><span class="p">]</span>
+        
+    <span class="n">footer_button</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ttt&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">&#39;owner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">ToggleButtons</span><span class="p">(</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Topic </span><span class="si">{</span><span class="n">topic_id</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">topic_id</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">],</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1"># &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;</span>
+    <span class="c1">#tooltips=[&#39;Description of slow&#39;, &#39;Description of regular&#39;, &#39;Description of fast&#39;],# icons=[&#39;check&#39;] * 3</span>
+    <span class="c1">#layout=Layout(height=&#39;auto&#39;, width=&#39;auto&#39;)</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">updater</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span><span class="o">=</span><span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;RISOTTO&#39;</span><span class="p">),</span>
+          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">a</span><span class="p">,</span>
+          <span class="n">center</span><span class="o">=</span><span class="n">papers_vboxes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+          <span class="n">pane_widths</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+          <span class="n">pane_heights</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;45px&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;45px&#39;</span><span class="p">],</span>
+          <span class="c1">#right_sidebar=right_button,</span>
           <span class="n">footer</span><span class="o">=</span><span class="n">footer_button</span><span class="p">)</span>
 </pre></div>
 
@@ -915,13 +409,6 @@ description: "A work document for testing a web GUI for RISOTTO"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -929,31 +416,10 @@ description: "A work document for testing a web GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># tell nbdev to generate library from notebooks</span>
-<span class="kn">from</span> <span class="nn">nbdev.export</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">notebook2script</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Converted 00_downloader.ipynb.
-Converted 01_references.ipynb.
-Converted 02_representations_and_lda.ipynb.
-Converted 03_hierarchical_topic_modelling.ipynb.
-Converted 99_risotto_gui.ipynb.
-Converted index.ipynb.
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -967,154 +433,53 @@ Converted index.ipynb.
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this code is here for cosmetic reasons</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/lmarti/jupyter_custom/master/custom.include&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># footer_button.label</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<link rel="stylesheet" href="https://files.inria.fr/dircom/extranet/fonts-inria-sans.css" rel="stylesheet">
-<link rel="stylesheet" href="https://files.inria.fr/dircom/extranet/fonts-inria-serif.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-<style>
-.text_cell_render {
-    font-style: regular;
-    font-family: 'Inria Sans', "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    display: block;
-}
-
-.text_cell_render h1 {
-    font-family: 'Inria Serif', Georgia, serif; 
-    font-weight: bold;
-    margin-bottom: 0.1em;
-    margin-top: 0.5em;
-    color:#E63319;
-}
-
-.reveal h1 {
-    font-family: 'Inria Serif', Georgia, serif;
-    font-weight: bold;
-    margin-bottom: 0.47em;
-    margin-top: 0.74em;
-    color:#E63319;
-}
-
-.text_cell_render h2 {
-    font-family: 'Inria Serif', Georgia, serif;
-    margin-bottom: 0.29em;
-    margin-top: 0.38em;
-    color:#E63319;
-}
-
-.text_cell_render h3 {
-    font-family: 'Inria Serif', Georgia, serif;
-    margin-bottom: 0.1em;
-    margin-top: 0.3em;
-    color:#595959;
-}
-.text_cell_render h4 {
-    font-family: 'Inria Sans', "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    margin-bottom: 0.1em;
-    margin-top: 0.3em;
-    color:#595959;
-}
-.text_cell_render h5 {
-    font-family: 'Inria Sans', "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    margin-bottom: 0.1em;
-    margin-top: 0.3em;
-    color:#595959;
-}
-
-div.text_cell_render{
-    line-height: 120%;
-    font-size: 100%;
-    font-weight: 400;
-    text-align: justify;
-    margin-left:0em;
-    margin-right:0em;
-}
-
-.reveal div.text_cell_render{
-    line-height: 120%;
-    font-size: 74%;
-    font-weight: 400;
-    text-align: justify;
-    margin-left:0em;
-    margin-right:0em;
-}
-
-.reveal h2 {
-    font-family: 'Inria Serif', Georgia, serif;
-    font-weight: bold;
-    margin-bottom: 0.1em;
-    margin-top: 0.5em;
-    color:#E63319;
-}
-
-.reveal h3 {
-    font-family: 'Inria Serif', Georgia, serif;
-    font-weight: bold;
-    margin-bottom: 0.1em;
-    margin-top: 0.5em;
-    color:#595959;
-}
-
-.reveal h4 {
-    font-family: 'Inria Sans', "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    font-weight: bold;
-    margin-bottom: 0.1em;
-    margin-top: 0.5em;
-    color:#595959;
-}
-
-.reveal .code_cell {
-    font-size: 92%;
-}
-
-.reveal code {
-font-family: 'Inconsolata', monospace;
-}
-.reveal pre {
-font-family: 'Inconsolata', monospace;
-}
-code {
-font-family: 'Inconsolata', monospace;
-}
-pre {
-font-family: 'Inconsolata', monospace;
-}
-.CodeMirror{
-font-family: "Inconsolata", monospace;
-}
-</style>
 </div>
+    {% endraw %}
 
-</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">paper_gridA</span><span class="p">(</span><span class="n">paper</span><span class="p">):</span>
+    <span class="c1">#grid = GridspecLayout(n_rows=7, n_columns=2, justify_content=&#39;space-around&#39;, align_items=&#39;flex-start&#39;)</span>
+    
+    <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Title:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">paper</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    
+    <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Authors:&#39;</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">paper</span><span class="o">.</span><span class="n">authors</span><span class="p">)</span>
+    
+    <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Date:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">paper</span><span class="o">.</span><span class="n">pub_date</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Relevance:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">paper</span><span class="o">.</span><span class="n">relevance</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;URL:&#39;</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;a href=&quot;</span><span class="si">{</span><span class="n">paper</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot;&gt;</span><span class="si">{</span><span class="n">paper</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s1">&lt;/a&gt;&#39;</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;DOI:&#39;</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">paper</span><span class="o">.</span><span class="n">doi</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Abstract:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">paper</span><span class="o">.</span><span class="n">abstract</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">grid</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
 </div>
  
 
