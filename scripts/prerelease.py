@@ -7,6 +7,7 @@ CORD19_DATASET_FOLDER = Path("./datasets/CORD-19-research-challenge")
 
 sys.path.append(".")
 
+
 def main():
     notebook2script()
 
@@ -15,6 +16,9 @@ def main():
 
     download_cord19_dataset()
     _, _, _ = build_artifacts(CORD19_DATASET_FOLDER)
+
+    sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
