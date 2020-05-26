@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  risotto:
+    container_name: risotto
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    image: risotto-mount
+    environment:
+      - KAGGLE_USERNAME=KAGGLE_USERNAME
+      - KAGGLE_KEY=KAGGLE_KEY
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/risotto
+    command: "sleep infinity"
+    stdin_open: true
+    tty: true
