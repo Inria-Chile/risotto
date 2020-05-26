@@ -5,7 +5,7 @@ services:
     container_name: risotto
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
     image: risotto
     environment:
       - KAGGLE_USERNAME=${KAGGLE_USERNAME}
@@ -13,8 +13,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./datasets:/usr/src/risotto/datasets/
-      - ./artifacts:/usr/src/risotto/artifacts/
+      - .:/usr/src/risotto
     # command: "sleep infinity"
     stdin_open: true
     tty: true

@@ -1,8 +1,6 @@
 import sys
 from pathlib import Path
 
-from nbdev.export import notebook2script
-
 """
 The following environment variables must be set in order to download the dataset:
 - KAGGLE_USERNAME
@@ -16,8 +14,6 @@ sys.path.append(".")
 
 
 def main():
-    notebook2script()
-
     from risotto.downloader import download_cord19_dataset
     from risotto.artifacts import build_artifacts
 

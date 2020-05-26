@@ -43,14 +43,14 @@ export $KAGGLE_KEY=<your_key>
 
 ```bash
 # For bash
-echo 'export $KAGGLE_USERNAME=<your_username>' >> ~/.bash_profile
-echo 'export $KAGGLE_KEY=<your_key>' >> ~/.bash_profile
+echo 'export KAGGLE_USERNAME=<your_username>' >> ~/.bash_profile
+echo 'export KAGGLE_KEY=<your_key>' >> ~/.bash_profile
 ```
 
 ```bash
 # For zsh
-echo 'export $KAGGLE_USERNAME=<your_username>' >> ~/.zshenv
-echo 'export $KAGGLE_KEY=<your_key>' >> ~/.zshenv
+echo 'export KAGGLE_USERNAME=<your_username>' >> ~/.zshenv
+echo 'export KAGGLE_KEY=<your_key>' >> ~/.zshenv
 ```
 
 ### 2. Clone or download the repository
