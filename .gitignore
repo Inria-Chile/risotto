@@ -146,6 +146,9 @@ checklink/cookies.txt
 .gitconfig
 
 # risotto stuff 
-datasets/
+datasets/**
+!datasets/.gitinclude
+artifacts/**
+!artifacts/.gitinclude
 *.hdf
 risotto/
