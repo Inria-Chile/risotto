@@ -20,4 +20,4 @@ RUN python scripts/build.py
 EXPOSE 8000
 
 # Run development server in runtime
-CMD ["run.sh"]
+CMD ["./run.sh"]
