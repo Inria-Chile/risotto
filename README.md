@@ -23,7 +23,7 @@ Consequently, our proposal is to generate as fast as possible a research support
 
 # How to use
 
-## How to install Risotto locally
+## How to use Risotto locally
 
 In order to use Risotto you will need a Kaggle username and key
 
@@ -75,6 +75,15 @@ source venv/bin/activate # If you have not sourced the virtualenvironment alread
 python scripts/prerelease.py
 ```
 
+### 5. Run the GUI
+
+The GUIwill be available at localhost:8000
+
+```bash
+source venv/bin/activate # If you have not sourced the virtualenvironment already
+voila --port=8000 --no-browser --enable_nbextensions=True 06_GUI.ipynb
+```
+
 # How to contribute
 
 ## How to get started
@@ -84,6 +93,8 @@ Before anything else, please install the git hooks that run automatic scripts du
 ```bash
 nbdev_install_git_hooks
 ```
+
+**Note:** if you installed the full requirements list on `requirements.txt` you can skip this, as it is already included there.
 
 ## Did you find a bug?
 
