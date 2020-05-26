@@ -3,6 +3,13 @@ from pathlib import Path
 
 from nbdev.export import notebook2script
 
+"""
+The following environment variables must be set in order to download the dataset:
+- KAGGLE_USERNAME
+- KAGGLE_KEY
+See https://www.kaggle.com/docs/api for more information.
+"""
+
 CORD19_DATASET_FOLDER = Path("./datasets/CORD-19-research-challenge")
 
 sys.path.append(".")
