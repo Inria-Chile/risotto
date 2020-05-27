@@ -23,11 +23,11 @@ Consequently, our proposal is to generate as fast as possible a research support
 
 # How to use
 
-## How to use Risotto locally
+## Presetup
 
 In order to use Risotto you will need a Kaggle username and key
 
-### 1. Get Kaggle Api key
+### Get Kaggle Api key
 
 If you do not have a Kaggle api key, you may follow the instructions here: https://www.kaggle.com/docs/api. You can set your API key by either:
 
@@ -53,14 +53,24 @@ echo 'export KAGGLE_USERNAME=<your_username>' >> ~/.zshenv
 echo 'export KAGGLE_KEY=<your_key>' >> ~/.zshenv
 ```
 
-### 2. Clone or download the repository
+- Setting the `KAGGLE_USERNAME` and `KAGGLE_KEY` environment variables in a `.env` file (for Docker use only!)
+
+```bash
+touch .env
+echo 'KAGGLE_USERNAME=<your_username>' >> .env
+echo 'KAGGLE_KEY=<your_key>' >> .env
+```
+
+### Clone or download the repository
 
 ```bash
 git clone git@github.com:Inria-Chile/risotto.git
 cd risotto
 ```
 
-### 3. Build virtual environment with python3 and install requirements
+## How to use Risotto locally (without docker)
+
+### Build virtual environment with python3 and install requirements
 
 ```bash
 python -m virtualenv -p python3 venv
@@ -68,20 +78,72 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Run the prerelease script
+### Run the build and preprocess scripts
+
+The build script converts the jupyter notebooks to python scripts. The preprocess script downloads the dataset and builds the artifacts if it is necessary, the `-f` flag forces to red-wonload and re-build
 
 ```bash
 source venv/bin/activate # If you have not sourced the virtualenvironment already
-python scripts/prerelease.py
+python scripts/build.py
+python scripts/preprocess.py -f # Use the -f flag to override dataset and artifac ts if they exist
 ```
 
-### 5. Run the GUI
+### Run the GUI
 
-The GUIwill be available at localhost:8000
+The GUI will be available at localhost:8000
 
 ```bash
 source venv/bin/activate # If you have not sourced the virtualenvironment already
 voila --port=8000 --no-browser --enable_nbextensions=True 06_GUI.ipynb
+```
+
+## How to use Risotto with docker
+
+We provide 2 sets of docker files to serve 2 different purposes: development and production
+
+### Docker for development
+
+This option mounts the whole repository inside the docker container, in order to facilitate using changes in the code
+
+```bash
+docker-compose -f docker-compose-dev.yml build
+docker-compose -f docker-compose-dev.yml up -d
+
+# To restart the container:
+docker-compose -f docker-compose-dev.yml restart risotto
+docker-compose -f docker-compose-dev.yml up -d
+
+# To force update the dataset and artifacts:
+docker-compose -f docker-compose-dev.yml exec risotto python scripts/preprocess.py -f
+
+# To stop the container:
+docker-compose -f docker-compose-dev.yml down -v
+```
+
+### Docker for production
+
+This option only mounts the dataset and artifacts folders, in order to keep them out of the container
+
+```bash
+docker-compose build
+docker-compose up -d
+
+# To restart the container:
+docker-compose restart risotto
+docker-compose up -d
+
+# To force update the dataset and artifacts:
+docker-compose exec risotto python scripts/preprocess.py -f
+
+# To stop the container:
+docker-compose down -v
+```
+
+```bash
+docker-compose build
+docker-compose up -d
+# To stop the container:
+docker-compose down -v
 ```
 
 # How to contribute
