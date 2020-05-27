@@ -17,7 +17,7 @@ def main():
     from risotto.downloader import download_cord19_dataset
     from risotto.artifacts import build_artifacts
 
-    download_cord19_dataset()
+    # download_cord19_dataset()
     _, _, _ = build_artifacts(CORD19_DATASET_FOLDER)
 
     sys.exit(0)
