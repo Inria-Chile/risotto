@@ -1,6 +1,8 @@
 import os
 import sys
 from pathlib import Path
+import argparse
+
 
 """
 The following environment variables must be set in order to download the dataset:
@@ -10,26 +12,24 @@ See https://www.kaggle.com/docs/api for more information.
 """
 
 CORD19_DATASET_FOLDER = Path("./datasets/CORD-19-research-challenge")
-ARTIFACTS_PATH = "./artifacta"
-DATASETS_PATH = "./dataseta"
+ARTIFACTS_PATH = "./artifacts"
+DATASETS_PATH = "./datasets"
 
 sys.path.append(".")
 
 
-def main():
+def main(force):
     from risotto.downloader import download_cord19_dataset
     from risotto.artifacts import build_artifacts
 
-    forced = False
-
-    if forced or len(os.listdir(DATASETS_PATH)) <= 1:
+    if force or len(os.listdir(DATASETS_PATH)) <= 1:
         print("Downloading dataset")
         download_cord19_dataset()
-        forced = True
+        force = True
     else:
         print("Using previously downloaded dataset")
 
-    if forced or len(os.listdir(ARTIFACTS_PATH)) <= 1:
+    if force or len(os.listdir(ARTIFACTS_PATH)) <= 1:
         print(
             "Building artifacts. You may go for a coffee, this will take some time..."
         )
@@ -41,4 +41,16 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-f",
+        "--force",
+        nargs="?",
+        const=True,
+        dest="force",
+        default=False,
+        help="Force preprocessing, overriding dataset and artifacts",
+    )
+    args = parser.parse_args()
+    force = args.force
+    main(force=force)
