@@ -15,6 +15,5 @@ services:
     volumes:
       - ./datasets:/usr/src/risotto/datasets/
       - ./artifacts:/usr/src/risotto/artifacts/
-    # command: "sleep infinity"
     stdin_open: true
     tty: true
