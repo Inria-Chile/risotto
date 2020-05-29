@@ -1,12 +1,12 @@
 ---
 
-title: Title
+title: Hierarchical Topic Modeling
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
-description: "summary"
+summary: "In this notebook we're going to expand our previous topic modeling approaches in order to model hierarchic topics."
+description: "In this notebook we're going to expand our previous topic modeling approaches in order to model hierarchic topics."
 ---
 <!--
 
@@ -29,21 +29,11 @@ description: "summary"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hierarchichal-Topic-Modelling">Hierarchichal Topic Modelling<a class="anchor-link" href="#Hierarchichal-Topic-Modelling"> </a></h1><p>In this notebook we're going to expand our previous topic modelling approaches in order to model hierarchic topics.
-Even though a single level topic modelling is helpful to go over the vast amount of papers in the CORD-19 dataset, our hypothesis is that a hierarchical topic modelling will provide a much more easier way to sway through the papers.</p>
-<p>The following references have caught our attention:</p>
-<ul>
-<li><a href="https://radimrehurek.com/gensim/models/hdpmodel.html">https://radimrehurek.com/gensim/models/hdpmodel.html</a>: an implementation of Hierarchical Dirichlet Processes (HDP) using the topic modelling library <code>gensim</code>.</li>
-<li><a href="https://github.com/joewandy/hlda">https://github.com/joewandy/hlda</a>: an implementation of Hierarchical Latent Dirichlet Allocation (hLDA) in Python.</li>
-<li><a href="https://datascience.stackexchange.com/questions/128/latent-dirichlet-allocation-vs-hierarchical-dirichlet-process">https://datascience.stackexchange.com/questions/128/latent-dirichlet-allocation-vs-hierarchical-dirichlet-process</a>: a comparison between LDA and HDP.</li>
-<li><a href="https://developer.squareup.com/blog/inferring-label-hierarchies-with-hlda/">https://developer.squareup.com/blog/inferring-label-hierarchies-with-hlda/</a>: a write up about Square's experience using hLDA to hierarchically classify customer support articles.</li>
-<li><a href="https://www.hindawi.com/journals/sp/2017/4382348/">https://www.hindawi.com/journals/sp/2017/4382348/</a>: a journal article.</li>
-</ul>
-<p>LDA models documents as Dirichlet mixtures of a fized number of topics, which are modelled as Dirichlet mixtures of words.
-hLDA is an adaptation of LDA that models topics as a mixture of a new, distinct level of topics.
-HDP main difference with respecto to LDA is that the number of topics isn't an hyperparamenter, but is discarded because it doesn't build a hierarchical topic structure.</p>
-<p>We'll first try a hierarchical topic modelling using hLDA and then we'll compare it to a manual LDA hierarchical modelling.</p>
-
+<div align='left' style="width:29%;overflow:hidden;">
+<a href='http://inria.fr'>
+{% include image.html alt="Inria logo" title="Inria logo" file="https://github.com/lmarti/jupyter_custom/raw/master/imgs/inr_logo_rouge.png" %}
+</a>
+</div>
 </div>
 </div>
 </div>
@@ -68,28 +58,390 @@ First, we'll install it.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install hlda
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
 </pre></div>
 
     </div>
 </div>
 </div>
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+
+<span class="kn">from</span> <span class="nn">fastprogress.fastprogress</span> <span class="kn">import</span> <span class="n">progress_bar</span>
+
+<span class="kn">from</span> <span class="nn">risotto.lda</span> <span class="kn">import</span> <span class="n">tokenizer</span>
+<span class="kn">from</span> <span class="nn">risotto.references</span> <span class="kn">import</span> <span class="n">load_papers_from_metadata_file</span><span class="p">,</span> <span class="n">paper_as_markdown</span>
+<span class="kn">from</span> <span class="nn">risotto.lda</span> <span class="kn">import</span> <span class="n">process_papers_file_contents</span>
+<span class="kn">from</span> <span class="nn">risotto.lda</span> <span class="kn">import</span> <span class="n">topic_descriptors</span>
+<span class="kn">from</span> <span class="nn">risotto.sampler</span> <span class="kn">import</span> <span class="n">HierarchicalLDA</span>
+
+<span class="kn">import</span> <span class="nn">pickle</span><span class="o">,</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># imports not required by the library</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">vstack</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we'll proceed to load the CORD-19 dataset papers.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">CORD19_DATASET_FOLDER</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./datasets/CORD-19-research-challenge&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">papers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_papers_from_metadata_file</span><span class="p">(</span><span class="n">CORD19_DATASET_FOLDER</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We've loaded the papers on memory.
+Now, we'll process them in order to produce text strings with their contents.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">docs</span> <span class="o">=</span> <span class="n">process_papers_file_contents</span><span class="p">(</span><span class="n">papers</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The last preprocessing step is to vectorize each paper.
+We'll represent them using the CountVectorizer <code>scikit-learn</code> implementation.
+We purposefully don't use representations such as <code>tf-idf</code> because the LDA algorithm takes care of the document frequency normalization of tokens.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_hlda_corpus</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+        <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">max_features</span><span class="o">=</span><span class="n">max_vocab_size</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="n">count_vectorizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+    
+    <span class="n">vocab</span> <span class="o">=</span> <span class="n">count_vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span>
+    <span class="n">docs_tokenized</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">docs_tokens_idxs</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">progress_bar</span><span class="p">(</span><span class="n">docs</span><span class="p">):</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">doc</span><span class="p">)]</span>
+        <span class="n">idxs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">vocab</span><span class="p">:</span>
+                <span class="n">idxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="n">token</span><span class="p">])</span>
+        <span class="n">docs_tokenized</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="n">docs_tokens_idxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idxs</span><span class="p">)</span>
+        
+    <span class="n">vocab_list</span> <span class="o">=</span> <span class="n">count_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">docs_tokenized</span><span class="p">,</span> <span class="n">docs_tokens_idxs</span><span class="p">,</span> <span class="n">vocab_list</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">docs_tokenized</span><span class="p">,</span> <span class="n">docs_tokens_idxs</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">get_hlda_corpus</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>docs_tokenized</code> is a list of lists with the tokenization of each paper.
+<code>docs_tokens_idxs</code> is a list of lists with the vocabulary indeces of each paper token.
+Finally, <code>vocab</code> is the list with the vocabulary used.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hlda</span> <span class="o">=</span> <span class="n">HierarchicalLDA</span><span class="p">(</span>
+    <span class="n">corpus</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">docs_tokens_idxs</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">docs_tokens_idxs</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)),</span>
+    <span class="n">vocab</span><span class="o">=</span><span class="n">vocab</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">eta</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">num_levels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hlda</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span>
+    <span class="n">num_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">display_topics</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">n_words</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">with_weights</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sampling a 10% of the total papers results in a sub-dataset of about 3.888 papers.
+The number of topics of each level is determined by the Chinese Restaurant Process and can be influenced by tweaking the <code>alpha</code> and <code>gamma</code> hyperparameters.
+Training the model on the 10% sample took about an hour for each 50 iterations.</p>
+<p>To avoid spending time retraining the model, it'll be dumped to be able to load it in posterior experiments.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dump the model</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;hlda.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dump_file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">hlda</span><span class="p">,</span> <span class="n">dump_file</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, we'll load the dumped model.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the model</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;hlda.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dump_file</span><span class="p">:</span>
+    <span class="n">hlda</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Manual-Hierarchical-LDA">Manual Hierarchical LDA<a class="anchor-link" href="#Manual-Hierarchical-LDA"> </a></h2><p>In this section we'll attempt to manually build a hierarchical topic model.
+Essentially, using the same number of topics found by the hLDA technique at <code>level=1</code>, we'll model topics using the standard LDA.
+Afterwards, for each group of documents of the first level topics, we'll run a new LDA topic modelling step.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_lda_corpus</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+        <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+        <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">max_features</span><span class="o">=</span><span class="n">max_vocab_size</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">vectorized_docs</span> <span class="o">=</span> <span class="n">count_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vectorized_docs</span><span class="p">,</span> <span class="n">count_vectorizer</span>
+
+
+<span class="k">def</span> <span class="nf">fit_lda_model</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">vectorized_docs</span><span class="p">,</span> <span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">get_lda_corpus</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+    <span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">vectorized_docs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lda</span><span class="p">,</span> <span class="n">vectorized_docs</span><span class="p">,</span> <span class="n">count_vectorizer</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Collecting hlda
-  Downloading https://files.pythonhosted.org/packages/a8/08/6287a6e93906b14d33ea3da2dd099d7a8d2f70ca270ca6fa5c0595b52919/hlda-0.2.tar.gz
-Installing collected packages: hlda
-  Running setup.py install for hlda ... done
-Successfully installed hlda-0.2
-<span class="ansi-yellow-fg">You are using pip version 19.0.3, however version 20.1 is available.
-You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
-</pre>
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_lda_corpus" class="doc_header"><code>get_lda_corpus</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/hierarchical_lda.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_lda_corpus</code>(<strong><code>docs</code></strong>, <strong><code>max_vocab_size</code></strong>=<em><code>8192</code></em>)</p>
+</blockquote>
+
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="fit_lda_model" class="doc_header"><code>fit_lda_model</code><a href="https://github.com/lmarti/risotto/tree/master/risotto/hierarchical_lda.py#L33" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fit_lda_model</code>(<strong><code>docs</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
 </div>
 
 </div>
@@ -105,9 +457,12 @@ You should consider upgrading via the &#39;pip install --upgrade pip&#39; comman
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">CORD19_DATASET_FOLDER</span> <span class="o">=</span> <span class="s2">&quot;./datasets/CORD-19-research-challenge&quot;</span>
-
-<span class="c1"># TODO: de acuerdo al notebook que usa el dataset de la BBC, hacer hLDA con CORD-19.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lda</span><span class="p">,</span> <span class="n">vectorized_docs</span><span class="p">,</span> <span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">fit_lda_model</span><span class="p">(</span>
+    <span class="n">docs</span><span class="p">,</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 
     </div>
@@ -117,6 +472,130 @@ You should consider upgrading via the &#39;pip install --upgrade pip&#39; comman
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following cell will print the most relevant tokens of each modelled component.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">topic_descriptors</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span> <span class="n">count_vectorizer</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, we'll build the groups of papers belonging to the different modelled topics.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">group_docs_by_topics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">vectorized_docs</span><span class="p">):</span>
+    <span class="n">docs_classified</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">vectorized_docs</span><span class="p">)</span>
+    <span class="n">docs_topics</span> <span class="o">=</span> <span class="n">docs_classified</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">clustered_docs</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">vectorized_doc</span><span class="p">,</span> <span class="n">topic_idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vectorized_docs</span><span class="p">,</span> <span class="n">docs_topics</span><span class="p">):</span>
+        <span class="n">clustered_docs</span><span class="p">[</span><span class="n">topic_idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vectorized_doc</span><span class="p">)</span>
+
+    <span class="n">stacked_clustered_docs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">topic_idx</span><span class="p">,</span> <span class="n">docs_list</span> <span class="ow">in</span> <span class="n">clustered_docs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">stacked_clustered_docs</span><span class="p">[</span><span class="n">topic_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">(</span><span class="n">docs_list</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">stacked_clustered_docs</span>
+
+<span class="n">grouped_docs</span> <span class="o">=</span> <span class="n">group_docs_by_topics</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span> <span class="n">vectorized_docs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grouped_docs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then, for each paper group, we'll run LDA on them.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">topic_descriptors</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span> <span class="n">count_vectorizer</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">topic_idx</span><span class="p">,</span> <span class="n">group_docs</span> <span class="ow">in</span> <span class="n">progress_bar</span><span class="p">(</span><span class="n">grouped_docs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Topic ID #</span><span class="si">{</span><span class="n">topic_idx</span><span class="si">}</span><span class="s2">; documents = </span><span class="si">{</span><span class="n">group_docs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">models</span><span class="p">[</span><span class="n">topic_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">models</span><span class="p">[</span><span class="n">topic_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">topic_idx</span><span class="p">]</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">group_docs</span><span class="p">)</span>
+    
+    <span class="n">topic_descriptors</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">topic_idx</span><span class="p">],</span> <span class="n">count_vectorizer</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
 </div>
  
 

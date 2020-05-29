@@ -31,24 +31,110 @@ description: "Research Intelligent Support and Organization TOol against COVID-1
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="https://img.shields.io/badge/python-3.x-green.svg" alt="Python 3.x">
 <a href="https://colab.research.google.com/github/Inria-Chile/risotto"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
-<a href="https://cecill.info/licences.en.html"><img src="https://img.shields.io/badge/license-CeCILL--B-orange" alt="License: CeCILL-B"></a></p>
-<h1 id="Context">Context<a class="anchor-link" href="#Context"> </a></h1><p>One of the positive implications of the Covid-19 outbreak is that it has generated a massive amount of focused scientific effort that is disseminated as research papers. However, because of the novel and massive amount of information that is being generated, traditional hand-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results in an adequate manner.</p>
+<a href="https://cecill.info/licences.en.html"><img src="https://img.shields.io/badge/license-CeCILL--B-orange" alt="License: CeCILL-B"></a>
+<a href=""><img src="https://img.shields.io/badge/fighting-%F0%9F%A6%A0COVID--19-9cf" alt="Fighting against COVID-19"></a></p>
+<h1 id="About-RISOTTO">About RISOTTO<a class="anchor-link" href="#About-RISOTTO"> </a></h1><p><a href="https://en.wikipedia.org/wiki/Coronavirus_disease_2019">COVID-19</a> research effort is generating a massive amount of information. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.</p>
 <p>So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.</p>
-<p>Consequently, our proposal is to generate as fast as possible a research support tool that applies the state of the art unsupervised NLP and ML methods that will able to:</p>
+<p>RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to:</p>
 <ul>
-<li>analyze all research papers available from global online sources,</li>
+<li>analyze COVID-19-related research papers freely available online,</li>
 <li>automatically detect hierarchical groups of these papers and topics,</li>
 <li>present leading "popular" papers as well as potential breakthroughs and new results, and</li>
 <li>provide a visualization tool to understand how is the progress doing what areas are receiving more attention in time, etc.</li>
 </ul>
+<p>At the moment, use as input the research papers that have been consolidated as the <a href="https://www.semanticscholar.org/cord19">CORD-19 dataset</a> by the <a href="https://allenai.org">Allen Institute for AI</a> and collaborating institutions. [1]</p>
 <p><strong>Note:</strong> It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.</p>
+<h3 id="References">References<a class="anchor-link" href="#References"> </a></h3><ol>
+<li>Wang, L.L., Lo, K., Chandrasekhar, Y., Reas, R., Yang, J., Eide, D., Funk, K., Kinney, R.M., Liu, Z., Merrill, W., Mooney, P., Murdick, D.A., Rishi, D., Sheehan, J., Shen, Z., Stilson, B., Wade, A.D., Wang, K., Wilhelm, C., Xie, B., Raymond, D.M., Weld, D.S., Etzioni, O., &amp; Kohlmeier, S. (2020). CORD-19: The Covid-19 Open Research Dataset. <em>ArXiv, <a href="https://arxiv.org/pdf/2004.10706.pdf">abs/2004.10706.</a></em></li>
+</ol>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-contribute">How to contribute<a class="anchor-link" href="#How-to-contribute"> </a></h1><h2 id="How-to-get-started">How to get started<a class="anchor-link" href="#How-to-get-started"> </a></h2><p>Before anything else, please install the git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:</p>
+<h1 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h1><h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h2><p>In order to use RISOTTO you will need a <a href="https://www.kaggle.com">Kaggle</a> username and key.</p>
+<h3 id="Get-a-Kaggle-API-key">Get a Kaggle API key<a class="anchor-link" href="#Get-a-Kaggle-API-key"> </a></h3><p>If you do not have a Kaggle api key, you may follow the instructions here: <a href="https://www.kaggle.com/docs/api">https://www.kaggle.com/docs/api</a>. You can set your API key by either:</p>
+<ul>
+<li>Copying the <code>kaggle.json</code> file in your local system, in <code>~/.kaggle/kaggle.json</code> for Linux/Mac or <code>C:\Users&lt;Windows-username&gt;.kaggle\kaggle.json</code> for Windows.</li>
+<li>Setting the <code>KAGGLE_USERNAME</code> and <code>KAGGLE_KEY</code> environment variables by one of the following options:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># Temporarily (you will need to do this everytime you open a new terminal):</span>
+<span class="nb">export</span> <span class="nv">$KAGGLE_USERNAME</span><span class="o">=</span>&lt;your_username&gt;
+<span class="nb">export</span> <span class="nv">$KAGGLE_KEY</span><span class="o">=</span>&lt;your_key&gt;
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1"># For bash</span>
+<span class="nb">echo</span> <span class="s1">&#39;export KAGGLE_USERNAME=&lt;your_username&gt;&#39;</span> &gt;&gt; ~/.bash_profile
+<span class="nb">echo</span> <span class="s1">&#39;export KAGGLE_KEY=&lt;your_key&gt;&#39;</span> &gt;&gt; ~/.bash_profile
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1"># For zsh</span>
+<span class="nb">echo</span> <span class="s1">&#39;export KAGGLE_USERNAME=&lt;your_username&gt;&#39;</span> &gt;&gt; ~/.zshenv
+<span class="nb">echo</span> <span class="s1">&#39;export KAGGLE_KEY=&lt;your_key&gt;&#39;</span> &gt;&gt; ~/.zshenv
+</pre></div>
+<ul>
+<li>Setting the <code>KAGGLE_USERNAME</code> and <code>KAGGLE_KEY</code> environment variables in a <code>.env</code> file (for Docker use only!)</li>
+</ul>
+<div class="highlight"><pre><span></span>touch .env
+<span class="nb">echo</span> <span class="s1">&#39;KAGGLE_USERNAME=&lt;your_username&gt;&#39;</span> &gt;&gt; .env
+<span class="nb">echo</span> <span class="s1">&#39;KAGGLE_KEY=&lt;your_key&gt;&#39;</span> &gt;&gt; .env
+</pre></div>
+<h3 id="Clone-or-download-the-repository">Clone or download the repository<a class="anchor-link" href="#Clone-or-download-the-repository"> </a></h3><div class="highlight"><pre><span></span>git clone git@github.com:Inria-Chile/risotto.git
+<span class="nb">cd</span> risotto
+</pre></div>
+<h2 id="How-to-use-RISOTTO-locally-(without-docker)">How to use RISOTTO locally (without docker)<a class="anchor-link" href="#How-to-use-RISOTTO-locally-(without-docker)"> </a></h2><h3 id="Build-virtual-environment-with-python3-and-install-requirements">Build virtual environment with python3 and install requirements<a class="anchor-link" href="#Build-virtual-environment-with-python3-and-install-requirements"> </a></h3><div class="highlight"><pre><span></span>python -m virtualenv -p python3 venv
+<span class="nb">source</span> venv/bin/activate
+pip install -r requirements.txt
+</pre></div>
+<h3 id="Run-the-build-and-preprocess-scripts">Run the build and preprocess scripts<a class="anchor-link" href="#Run-the-build-and-preprocess-scripts"> </a></h3><p>The build script converts the jupyter notebooks to python scripts. The <code>preprocess.py</code> script downloads the dataset and builds the artifacts if it is necessary, the <code>-f</code> flag forces to re-download and re-build.</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> venv/bin/activate <span class="c1"># If you have not sourced the virtual environment already</span>
+python scripts/build.py
+python scripts/preprocess.py -f <span class="c1"># Use the -f flag to override dataset and artifact ts if they exist</span>
+</pre></div>
+<h3 id="Run-the-GUI">Run the GUI<a class="anchor-link" href="#Run-the-GUI"> </a></h3><p>The GUI will be available at localhost:8000</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> venv/bin/activate <span class="c1"># If you have not sourced the virtual environment already</span>
+voila --port<span class="o">=</span><span class="m">8000</span> --no-browser --enable_nbextensions<span class="o">=</span>True 06_GUI.ipynb
+</pre></div>
+<h2 id="How-to-use-Risotto-with-docker">How to use Risotto with docker<a class="anchor-link" href="#How-to-use-Risotto-with-docker"> </a></h2><p>We provide 2 sets of docker files to serve 2 different purposes: development and production</p>
+<h3 id="Docker-for-development">Docker for development<a class="anchor-link" href="#Docker-for-development"> </a></h3><p>This option mounts the whole repository inside the docker container, in order to facilitate using changes in the code</p>
+<div class="highlight"><pre><span></span>docker-compose -f docker-compose-dev.yml build
+docker-compose -f docker-compose-dev.yml up -d
+
+<span class="c1"># To restart the container:</span>
+docker-compose -f docker-compose-dev.yml restart risotto
+docker-compose -f docker-compose-dev.yml up -d
+
+<span class="c1"># To force update the dataset and artifacts:</span>
+docker-compose -f docker-compose-dev.yml <span class="nb">exec</span> risotto python scripts/preprocess.py -f
+
+<span class="c1"># To stop the container:</span>
+docker-compose -f docker-compose-dev.yml down -v
+</pre></div>
+<h3 id="Docker-for-production">Docker for production<a class="anchor-link" href="#Docker-for-production"> </a></h3><p>This option only mounts the dataset and artifacts folders, in order to keep them out of the container</p>
+<div class="highlight"><pre><span></span>docker-compose build
+docker-compose up -d
+
+<span class="c1"># To restart the container:</span>
+docker-compose restart risotto
+docker-compose up -d
+
+<span class="c1"># To force update the dataset and artifacts:</span>
+docker-compose <span class="nb">exec</span> risotto python scripts/preprocess.py -f
+
+<span class="c1"># To stop the container:</span>
+docker-compose down -v
+</pre></div>
+<div class="highlight"><pre><span></span>docker-compose build
+docker-compose up -d
+<span class="c1"># To stop the container:</span>
+docker-compose down -v
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-to-contribute">How to contribute<a class="anchor-link" href="#How-to-contribute"> </a></h1><h2 id="How-to-get-started">How to get started<a class="anchor-link" href="#How-to-get-started"> </a></h2><p>Before anything else, please install the <code>nbdev</code> git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:</p>
 
 <pre><code>nbdev_install_git_hooks</code></pre>
 <h2 id="Did-you-find-a-bug?">Did you find a bug?<a class="anchor-link" href="#Did-you-find-a-bug?"> </a></h2><ul>
@@ -69,7 +155,7 @@ description: "Research Intelligent Support and Organization TOol against COVID-1
 <li>If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.</li>
 </ul>
 <h2 id="Do-you-want-to-contribute-to-the-documentation?">Do you want to contribute to the documentation?<a class="anchor-link" href="#Do-you-want-to-contribute-to-the-documentation?"> </a></h2><ul>
-<li>Docs are automatically created from the notebooks in the nbs folder.</li>
+<li>Docs are automatically created from the notebooks.</li>
 </ul>
 
 </div>

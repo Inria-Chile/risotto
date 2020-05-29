@@ -11,13 +11,25 @@ entries:
       url: /
     - output: web,pdf
       title: Title
-      url: /hierarchical_topic_modelling
+      url: /downloader
+    - output: web,pdf
+      title: Exploring CORD-19 references
+      url: /references
     - output: web,pdf
       title: Representations, LDA and topics in CORD-19
       url: /representations_and_lda
     - output: web,pdf
+      title: Hierarchical Topic Modeling
+      url: /hierarchical_topic_modelling
+    - output: web,pdf
+      title: Cooking RISOTTO artifacts
+      url: /cook_artifacts
+    - output: web,pdf
       title: RISOTTO
-      url: /risotto_gui
+      url: /GUI
+    - output: web,pdf
+      title: Ported code!
+      url: /ported_hlda_sampler
     output: web
     title: risotto
   output: web

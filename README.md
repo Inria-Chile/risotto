@@ -1,38 +1,43 @@
 # 🍚 RISOTTO
+> Research Intelligent Support and Organization TOol against COVID-19 
 
-> Research Intelligent Support and Organization TOol against COVID-19
 
 ![Python 3.x](https://img.shields.io/badge/python-3.x-green.svg)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Inria-Chile/risotto)
 [![License: CeCILL-B](https://img.shields.io/badge/license-CeCILL--B-orange)](https://cecill.info/licences.en.html)
+[![Fighting against COVID-19](https://img.shields.io/badge/fighting-%F0%9F%A6%A0COVID--19-9cf)]()
 
-# Context
+# About RISOTTO
 
-One of the positive implications of the Covid-19 outbreak is that it has generated a massive amount of focused scientific effort that is disseminated as research papers. However, because of the novel and massive amount of information that is being generated, traditional hand-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results in an adequate manner.
+[COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019) research effort is generating a massive amount of information. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.
 
 So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.
 
-Consequently, our proposal is to generate as fast as possible a research support tool that applies the state of the art unsupervised NLP and ML methods that will able to:
-
-- analyze all research papers available from global online sources,
+RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to:
+- analyze COVID-19-related research papers freely available online,
 - automatically detect hierarchical groups of these papers and topics,
 - present leading "popular" papers as well as potential breakthroughs and new results, and
 - provide a visualization tool to understand how is the progress doing what areas are receiving more attention in time, etc.
 
+At the moment, use as input the research papers that have been consolidated as the [CORD-19 dataset](https://www.semanticscholar.org/cord19) by the [Allen Institute for AI](https://allenai.org) and collaborating institutions. [1]
+
 **Note:** It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.
+
+### References
+
+1. Wang, L.L., Lo, K., Chandrasekhar, Y., Reas, R., Yang, J., Eide, D., Funk, K., Kinney, R.M., Liu, Z., Merrill, W., Mooney, P., Murdick, D.A., Rishi, D., Sheehan, J., Shen, Z., Stilson, B., Wade, A.D., Wang, K., Wilhelm, C., Xie, B., Raymond, D.M., Weld, D.S., Etzioni, O., & Kohlmeier, S. (2020). CORD-19: The Covid-19 Open Research Dataset. *ArXiv, [abs/2004.10706.](https://arxiv.org/pdf/2004.10706.pdf)*
 
 # How to use
 
-## Presetup
+## Prerequisites
 
-In order to use Risotto you will need a Kaggle username and key
+In order to use RISOTTO you will need a [Kaggle](https://www.kaggle.com) username and key.
 
-### Get Kaggle Api key
+### Get a Kaggle API key
 
 If you do not have a Kaggle api key, you may follow the instructions here: https://www.kaggle.com/docs/api. You can set your API key by either:
 
-- Copying the `kaggle.json` file in your local system, in `~/.kaggle/kaggle.json` for Linux/Mac or `C:\Users<Windows-username>.kaggle\kaggle.json` for Windows
-
+- Copying the `kaggle.json` file in your local system, in `~/.kaggle/kaggle.json` for Linux/Mac or `C:\Users<Windows-username>.kaggle\kaggle.json` for Windows.
 - Setting the `KAGGLE_USERNAME` and `KAGGLE_KEY` environment variables by one of the following options:
 
 ```bash
@@ -68,7 +73,7 @@ git clone git@github.com:Inria-Chile/risotto.git
 cd risotto
 ```
 
-## How to use Risotto locally (without docker)
+## How to use RISOTTO locally (without docker)
 
 ### Build virtual environment with python3 and install requirements
 
@@ -80,12 +85,12 @@ pip install -r requirements.txt
 
 ### Run the build and preprocess scripts
 
-The build script converts the jupyter notebooks to python scripts. The preprocess script downloads the dataset and builds the artifacts if it is necessary, the `-f` flag forces to red-wonload and re-build
+The build script converts the jupyter notebooks to python scripts. The `preprocess.py` script downloads the dataset and builds the artifacts if it is necessary, the `-f` flag forces to re-download and re-build.
 
 ```bash
-source venv/bin/activate # If you have not sourced the virtualenvironment already
+source venv/bin/activate # If you have not sourced the virtual environment already
 python scripts/build.py
-python scripts/preprocess.py -f # Use the -f flag to override dataset and artifac ts if they exist
+python scripts/preprocess.py -f # Use the -f flag to override dataset and artifact ts if they exist
 ```
 
 ### Run the GUI
@@ -93,7 +98,7 @@ python scripts/preprocess.py -f # Use the -f flag to override dataset and artifa
 The GUI will be available at localhost:8000
 
 ```bash
-source venv/bin/activate # If you have not sourced the virtualenvironment already
+source venv/bin/activate # If you have not sourced the virtual environment already
 voila --port=8000 --no-browser --enable_nbextensions=True 06_GUI.ipynb
 ```
 
@@ -150,34 +155,33 @@ docker-compose down -v
 
 ## How to get started
 
-Before anything else, please install the git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:
-
-```bash
+Before anything else, please install the `nbdev` git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:
+```
 nbdev_install_git_hooks
 ```
 
-**Note:** if you installed the full requirements list on `requirements.txt` you can skip this, as it is already included there.
-
 ## Did you find a bug?
 
-- Ensure the bug was not already reported by searching on GitHub under Issues.
-- If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
-- Be sure to add the complete error messages.
+* Ensure the bug was not already reported by searching on GitHub under Issues.
+* If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
+* Be sure to add the complete error messages.
 
 #### Did you write a patch that fixes a bug?
 
-- Open a new GitHub pull request with the patch.
-- Ensure that your PR includes a test that fails without your patch, and pass with it.
-- Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
+* Open a new GitHub pull request with the patch.
+* Ensure that your PR includes a test that fails without your patch, and pass with it.
+* Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
+
 
 ## PR submission guidelines
 
-- Keep each PR focused. While it's more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.
-- Do not mix style changes/fixes with "functional" changes. It's very difficult to review such PRs and it most likely get rejected.
-- Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.
-- Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.
-- If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.
+* Keep each PR focused. While it's more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.
+* Do not mix style changes/fixes with "functional" changes. It's very difficult to review such PRs and it most likely get rejected.
+* Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.
+* Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.
+* If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.
+
 
 ## Do you want to contribute to the documentation?
 
-- Docs are automatically created from the notebooks in the nbs folder.
+* Docs are automatically created from the notebooks.
