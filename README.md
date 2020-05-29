@@ -2,10 +2,11 @@
 > Research Intelligent Support and Organization TOol against COVID-19 
 
 
+![Fighting against COVID-19](https://img.shields.io/badge/fighting-%F0%9F%A6%A0_COVID--19-9cf)
 ![Python 3.x](https://img.shields.io/badge/python-3.x-green.svg)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Inria-Chile/risotto)
+![CI](https://github.com/Inria-Chile/risotto/workflows/CI/badge.svg)
 [![License: CeCILL-B](https://img.shields.io/badge/license-CeCILL--B-orange)](https://cecill.info/licences.en.html)
-[![Fighting against COVID-19](https://img.shields.io/badge/fighting-%F0%9F%A6%A0COVID--19-9cf)]()
 
 # About RISOTTO
 

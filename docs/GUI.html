@@ -1,12 +1,12 @@
 ---
 
-title: RISOTTO
+title: Title
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "A work in progress GUI for RISOTTO"
-description: "A work in progress GUI for RISOTTO"
+summary: "summary"
+description: "summary"
 ---
 <!--
 
@@ -29,10 +29,58 @@ description: "A work in progress GUI for RISOTTO"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div align='left' style="width:29%;overflow:hidden;">
-<a href='http://inria.fr'>
-{% include image.html alt="Inria logo" title="Inria logo" file="https://github.com/lmarti/jupyter_custom/raw/master/imgs/inr_logo_rouge.png" %}
-</a>
+<p><style>
+    .jp-Notebook {
+        width:100% !important;
+        padding: 0 !important;
+    }
+    .jp-RenderedHTMLCommon {
+        width:100% !important;
+        padding: 0 !important;
+    }
+    .jp-RenderedHTMLCommon p {
+        margin: 0;
+    }
+</style></p>
+<p><style type="text/css">
+    .topbar {
+        width:100% !important;
+        padding:0 !important;
+        overflow:hidden !important;
+        background:#e53411 !important;
+    }
+    .logo {
+        height: 25px !important;
+    }
+</style></p>
+<div align='left' style="width:100%;padding:0">
+<span align='left' style="width:100%;padding:2em;overflow:hidden;background:#e53411;display:flex;flex-flow:row;align-items:center">
+    <span href='http://inria.fr'>
+        <img style="height:50px !important;padding-right:20px;position:relative;border-right:1px solid white;"  src='https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png' alt='Inria logo' title='Inria logo'/>
+    </span>
+    <span style="font-size:2em;color:white;padding-left:20px;">
+        RISOTTO
+    </span>
+</span>
+
+<span>
+    <h1 style="padding:0 25px;max-width:1250px">Risotto in a few words...</h1>
+
+    <p style="padding:0 25px;max-width:1250px">
+        RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to analyze research papers freely available online.
+    </p>
+
+
+    <p style="padding:0 25px;max-width:1250px">
+        Risotto sorts the papers by relevance. For more information see our <a href="/"> technical report </a>
+    </p>
+
+    <h2 style="padding:0 25px;max-width:1250px"> First and second level topics </h2>
+
+    <p style="padding:0 25px;max-width:1250px">
+    Are selected based on this and thaand allow to specialise the filtering. The most popular words... Yadda yadda. - Something about first level - Something about second level
+    </p>
+</span>
 </div>
 </div>
 </div>
@@ -44,7 +92,8 @@ description: "A work in progress GUI for RISOTTO"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This notebook is not intended to be used as a notebook, but reather as a GUI with Voila</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">GridspecLayout</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">widgets</span><span class="p">,</span> <span class="n">Button</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
@@ -512,7 +561,7 @@ description: "A work in progress GUI for RISOTTO"
     <span class="n">papers</span><span class="o">=</span><span class="n">papers_artifact</span><span class="p">,</span>
     <span class="n">papers_topics</span><span class="o">=</span><span class="n">papers_topics_artifact</span><span class="p">,</span>
     <span class="n">page</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">items_per_page</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">items_per_page</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">parent</span><span class="o">=</span><span class="n">paper_set_box</span>
 <span class="p">)</span>
 <span class="n">filter_and_search_view</span> <span class="o">=</span> <span class="n">FilterAndSearchView</span><span class="p">(</span>
@@ -522,7 +571,7 @@ description: "A work in progress GUI for RISOTTO"
 <span class="n">box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
     <span class="n">filter_and_search_view</span><span class="o">.</span><span class="n">to_widget</span><span class="p">(),</span>
     <span class="n">paper_set_box</span><span class="p">,</span>
-<span class="p">])</span>
+<span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="s1">&#39;15px&#39;</span><span class="p">))</span>
 <span class="n">box</span>
 </pre></div>
 

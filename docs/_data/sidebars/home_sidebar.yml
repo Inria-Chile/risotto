@@ -11,7 +11,7 @@ entries:
       url: /
     - output: web,pdf
       title: Title
-      url: /downloader
+      url: /GUI
     - output: web,pdf
       title: Exploring CORD-19 references
       url: /references
@@ -24,9 +24,6 @@ entries:
     - output: web,pdf
       title: Cooking RISOTTO artifacts
       url: /cook_artifacts
-    - output: web,pdf
-      title: RISOTTO
-      url: /GUI
     - output: web,pdf
       title: Ported code!
       url: /ported_hlda_sampler
