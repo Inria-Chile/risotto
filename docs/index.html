@@ -33,7 +33,7 @@ description: "Research Intelligent Support and Organization TOol against COVID-1
 <a href="https://colab.research.google.com/github/Inria-Chile/risotto"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
 <a href="https://cecill.info/licences.en.html"><img src="https://img.shields.io/badge/license-CeCILL--B-orange" alt="License: CeCILL-B"></a>
 <a href=""><img src="https://img.shields.io/badge/fighting-%F0%9F%A6%A0COVID--19-9cf" alt="Fighting against COVID-19"></a></p>
-<h1 id="About-RISOTTO">About RISOTTO<a class="anchor-link" href="#About-RISOTTO"> </a></h1><p><a href="https://en.wikipedia.org/wiki/Coronavirus_disease_2019">COVID-19</a> research effort is generating a massive amount of information. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.</p>
+<h1 id="About-RISOTTO">About RISOTTO<a class="anchor-link" href="#About-RISOTTO"> </a></h1><p>The <a href="https://en.wikipedia.org/wiki/Coronavirus_disease_2019">COVID-19</a> research effort is generating a massive amount of information that is reported as research papers. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.</p>
 <p>So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.</p>
 <p>RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to:</p>
 <ul>
@@ -53,7 +53,7 @@ description: "Research Intelligent Support and Organization TOol against COVID-1
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h1><h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h2><p>In order to use RISOTTO you will need a <a href="https://www.kaggle.com">Kaggle</a> username and key.</p>
+<h1 id="Installing-RISOTTO">Installing RISOTTO<a class="anchor-link" href="#Installing-RISOTTO"> </a></h1><h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h2><p>In order to use RISOTTO you will need a <a href="https://www.kaggle.com">Kaggle</a> username and key.</p>
 <h3 id="Get-a-Kaggle-API-key">Get a Kaggle API key<a class="anchor-link" href="#Get-a-Kaggle-API-key"> </a></h3><p>If you do not have a Kaggle api key, you may follow the instructions here: <a href="https://www.kaggle.com/docs/api">https://www.kaggle.com/docs/api</a>. You can set your API key by either:</p>
 <ul>
 <li>Copying the <code>kaggle.json</code> file in your local system, in <code>~/.kaggle/kaggle.json</code> for Linux/Mac or <code>C:\Users&lt;Windows-username&gt;.kaggle\kaggle.json</code> for Windows.</li>
@@ -94,7 +94,7 @@ python scripts/preprocess.py -f <span class="c1"># Use the -f flag to override d
 <div class="highlight"><pre><span></span><span class="nb">source</span> venv/bin/activate <span class="c1"># If you have not sourced the virtual environment already</span>
 voila --port<span class="o">=</span><span class="m">8000</span> --no-browser --enable_nbextensions<span class="o">=</span>True 06_GUI.ipynb
 </pre></div>
-<h2 id="How-to-use-Risotto-with-docker">How to use Risotto with docker<a class="anchor-link" href="#How-to-use-Risotto-with-docker"> </a></h2><p>We provide 2 sets of docker files to serve 2 different purposes: development and production</p>
+<h2 id="How-to-use-RISOTTO-with-docker">How to use RISOTTO with docker<a class="anchor-link" href="#How-to-use-RISOTTO-with-docker"> </a></h2><p>We provide 2 sets of docker files to serve 2 different purposes: development and production</p>
 <h3 id="Docker-for-development">Docker for development<a class="anchor-link" href="#Docker-for-development"> </a></h3><p>This option mounts the whole repository inside the docker container, in order to facilitate using changes in the code</p>
 <div class="highlight"><pre><span></span>docker-compose -f docker-compose-dev.yml build
 docker-compose -f docker-compose-dev.yml up -d

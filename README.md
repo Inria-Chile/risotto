@@ -9,7 +9,7 @@
 
 # About RISOTTO
 
-[COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019) research effort is generating a massive amount of information. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.
+The [COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019) research effort is generating a massive amount of information that is reported as research papers. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.
 
 So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.
 
@@ -27,7 +27,7 @@ At the moment, use as input the research papers that have been consolidated as t
 
 1. Wang, L.L., Lo, K., Chandrasekhar, Y., Reas, R., Yang, J., Eide, D., Funk, K., Kinney, R.M., Liu, Z., Merrill, W., Mooney, P., Murdick, D.A., Rishi, D., Sheehan, J., Shen, Z., Stilson, B., Wade, A.D., Wang, K., Wilhelm, C., Xie, B., Raymond, D.M., Weld, D.S., Etzioni, O., & Kohlmeier, S. (2020). CORD-19: The Covid-19 Open Research Dataset. *ArXiv, [abs/2004.10706.](https://arxiv.org/pdf/2004.10706.pdf)*
 
-# How to use
+# Installing RISOTTO
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ source venv/bin/activate # If you have not sourced the virtual environment alrea
 voila --port=8000 --no-browser --enable_nbextensions=True 06_GUI.ipynb
 ```
 
-## How to use Risotto with docker
+## How to use RISOTTO with docker
 
 We provide 2 sets of docker files to serve 2 different purposes: development and production
 
