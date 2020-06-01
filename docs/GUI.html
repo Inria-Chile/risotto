@@ -27,9 +27,81 @@ description: "summary"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><style>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">jp-Notebook</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">jp-RenderedHTMLCommon</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">jp-RenderedHTMLCommon</span> <span class="nt">p</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">topbar</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">padding</span><span class="p">:</span><span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">background</span><span class="p">:</span><span class="mh">#e53411</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">logo</span> <span class="p">{</span>
+        <span class="k">height</span><span class="p">:</span> <span class="mi">25</span><span class="kt">px</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&#39;left&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%;padding:0; overflow: hidden;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">align</span><span class="o">=</span><span class="s">&#39;left&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%;padding:2em;overflow:hidden;background:#e53411;display:flex;flex-flow:row;align-items:center&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;http://inria.fr&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:50px !important;padding-right:20px;position:relative;border-right:1px solid white;&quot;</span>  <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png&#39;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#39;Inria logo&#39;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#39;Inria logo&#39;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:2em;color:white;padding-left:20px;&quot;</span><span class="p">&gt;</span>
+        RISOTTO
+    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>Risotto in a few words...<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>
+        RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to analyze research papers freely available online.
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    
+    
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>
+        Risotto sorts the papers by relevance. For more information see our <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>technical report<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span> First and second level topics <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>
+    Are selected based on this and thaand allow to specialise the filtering. The most popular words... Yadda yadda. - Something about first level - Something about second level
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
     .jp-Notebook {
         width:100% !important;
         padding: 0 !important;
@@ -41,8 +113,8 @@ description: "summary"
     .jp-RenderedHTMLCommon p {
         margin: 0;
     }
-</style></p>
-<p><style type="text/css">
+</style>
+<style type="text/css">
     .topbar {
         width:100% !important;
         padding:0 !important;
@@ -52,8 +124,8 @@ description: "summary"
     .logo {
         height: 25px !important;
     }
-</style></p>
-<div align='left' style="width:100%;padding:0">
+</style>
+<div align='left' style="width:100%;padding:0; overflow: hidden;">
 <span align='left' style="width:100%;padding:2em;overflow:hidden;background:#e53411;display:flex;flex-flow:row;align-items:center">
     <span href='http://inria.fr'>
         <img style="height:50px !important;padding-right:20px;position:relative;border-right:1px solid white;"  src='https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png' alt='Inria logo' title='Inria logo'/>
@@ -69,10 +141,10 @@ description: "summary"
     <p style="padding:0 25px;max-width:1250px">
         RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to analyze research papers freely available online.
     </p>
-
-
+    
+    
     <p style="padding:0 25px;max-width:1250px">
-        Risotto sorts the papers by relevance. For more information see our <a href="/"> technical report </a>
+        Risotto sorts the papers by relevance. For more information see our <a href="/">technical report</a>.
     </p>
 
     <h2 style="padding:0 25px;max-width:1250px"> First and second level topics </h2>
@@ -82,9 +154,17 @@ description: "summary"
     </p>
 </span>
 </div>
+
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -95,7 +175,7 @@ description: "summary"
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This notebook is not intended to be used as a notebook, but reather as a GUI with Voila</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">GridspecLayout</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">widgets</span><span class="p">,</span> <span class="n">Button</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">GridspecLayout</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">widgets</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Style</span><span class="p">,</span> <span class="n">Text</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 
@@ -212,33 +292,103 @@ description: "summary"
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">most_relevant</span><span class="si">}</span><span class="s2">)&quot;</span>
         
     <span class="k">def</span> <span class="nf">to_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">topics_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-            <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;Todos&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topics</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tópico:&quot;</span><span class="p">,</span>
+        <span class="n">text_line</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            &lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="s2">                #filter-text {</span>
+<span class="s2">                    position: relative;</span>
+<span class="s2">                }</span>
+
+<span class="s2">                #filter-text span {</span>
+<span class="s2">                    background-color: white;</span>
+<span class="s2">                    padding-right: 10px;</span>
+<span class="s2">                    color: #7d8390;</span>
+<span class="s2">                }</span>
+
+<span class="s2">                #filter-text::after {</span>
+<span class="s2">                    content: &quot;&quot;;</span>
+<span class="s2">                    position: absolute;</span>
+<span class="s2">                    bottom: 0;</span>
+<span class="s2">                    left: 0;</span>
+<span class="s2">                    right: 0;</span>
+<span class="s2">                    top: 1em;</span>
+<span class="s2">                    border-top: 1px solid #dce0e3;</span>
+<span class="s2">                    z-index: -1;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                .filter-label {</span>
+<span class="s2">                    font-weight: bold;</span>
+<span class="s2">                    color: #384257;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                .filter-button {</span>
+<span class="s2">                    background-color: #384257;</span>
+<span class="s2">                    color: white;</span>
+<span class="s2">                    font-weight: bold;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">                .border-top {</span>
+<span class="s2">                    border-top: 1px solid #dce0e3;</span>
+<span class="s2">                    padding-top: 1em;</span>
+<span class="s2">                    margin-top: 1em;</span>
+<span class="s2">                }</span>
+<span class="s2">                </span>
+<span class="s2">            &lt;/style&gt;</span>
+<span class="s2">            &lt;div&gt;</span>
+<span class="s2">                &lt;p id=&quot;filter-text&quot;&gt;</span>
+<span class="s2">                    &lt;span&gt;See relevant papers&lt;/span&gt;</span>
+<span class="s2">                &lt;/p&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">topics_dropdown_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topics</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">subtopics_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-            <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;Todos&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopics</span><span class="p">[</span><span class="n">topics_dropdown</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Subtópico:&quot;</span><span class="p">,</span>
+        <span class="n">topics_dropdown</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
+            <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;p class=&#39;filter-label&#39;&gt;Topic&lt;/p&gt;&quot;</span><span class="p">),</span>
+            <span class="n">topics_dropdown_input</span><span class="p">,</span>
+        <span class="p">])</span>
+        <span class="n">subtopics_dropdown_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopics</span><span class="p">[</span><span class="n">topics_dropdown_input</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
         <span class="p">)</span>
-        <span class="n">search_textbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Búsqueda:&quot;</span><span class="p">,</span>
+        <span class="n">subtopics_dropdown</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
+            <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;p class=&#39;filter-label&#39;&gt;Subtopic&lt;/p&gt;&quot;</span><span class="p">),</span>
+            <span class="n">subtopics_dropdown_input</span><span class="p">,</span>
+        <span class="p">])</span>
+        <span class="n">search_textbox_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">()</span>
+        <span class="n">search_textbox</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
+            <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;p class=&#39;filter-label&#39;&gt;Search&lt;/p&gt;&quot;</span><span class="p">),</span>
+            <span class="n">search_textbox_input</span><span class="p">,</span>
+        <span class="p">])</span>
+        <span class="n">search_button_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Filter&quot;</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">search_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
-            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Filtrar&quot;</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="n">dropdowns_box</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">([</span>
+        <span class="n">search_button_input</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;filter-button&quot;</span><span class="p">)</span>
+        <span class="n">search_button</span> <span class="o">=</span> <span class="n">Box</span><span class="p">([</span>
+            <span class="n">search_button_input</span>
+        <span class="p">],</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+            <span class="n">display</span><span class="o">=</span><span class="s2">&quot;flex&quot;</span><span class="p">,</span>
+            <span class="n">justify_content</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="p">))</span>
+        <span class="n">first_row</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">([</span>
             <span class="n">topics_dropdown</span><span class="p">,</span>
             <span class="n">subtopics_dropdown</span><span class="p">,</span>
-        <span class="p">])</span>
-        <span class="n">search_box</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">([</span>
             <span class="n">search_textbox</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+                <span class="n">display</span><span class="o">=</span><span class="s2">&quot;flex&quot;</span><span class="p">,</span>
+                <span class="n">justify_content</span><span class="o">=</span><span class="s2">&quot;space-between&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">filter_and_search_box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
+            <span class="n">text_line</span><span class="p">,</span>
+            <span class="n">first_row</span><span class="p">,</span>
             <span class="n">search_button</span><span class="p">,</span>
         <span class="p">])</span>
 
         <span class="c1"># Event handlers</span>
         <span class="k">def</span> <span class="nf">handle_topic_change</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;change&quot;</span> <span class="ow">and</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
-                <span class="n">subtopics_dropdown</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Todos&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopics</span><span class="p">[</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]]</span>
+                <span class="n">subtopics_dropdown_input</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopics</span><span class="p">[</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]]</span>
 
         <span class="k">def</span> <span class="nf">handle_subtopic_change</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;change&quot;</span> <span class="ow">and</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
@@ -246,56 +396,19 @@ description: "summary"
         
         <span class="k">def</span> <span class="nf">handle_search_button_click</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_on_filter_handler</span><span class="p">(</span>
-                <span class="n">topic_id</span><span class="o">=</span><span class="n">topics_dropdown</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                <span class="n">subtopic_id</span><span class="o">=</span><span class="n">subtopics_dropdown</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-                <span class="n">text</span><span class="o">=</span><span class="n">search_textbox</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">topic_id</span><span class="o">=</span><span class="n">topics_dropdown_input</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                <span class="n">subtopic_id</span><span class="o">=</span><span class="n">subtopics_dropdown_input</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">search_textbox_input</span><span class="o">.</span><span class="n">value</span>
             <span class="p">)</span>
             
-        <span class="n">topics_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_topic_change</span><span class="p">)</span>
-        <span class="n">subtopics_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_subtopic_change</span><span class="p">)</span>
-        <span class="n">search_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">handle_search_button_click</span><span class="p">)</span>
+        <span class="n">topics_dropdown_input</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_topic_change</span><span class="p">)</span>
+        <span class="n">subtopics_dropdown_input</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_subtopic_change</span><span class="p">)</span>
+        <span class="n">search_button_input</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">handle_search_button_click</span><span class="p">)</span>
         
-        <span class="n">filter_and_search_box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
-            <span class="n">dropdowns_box</span><span class="p">,</span>
-            <span class="n">search_box</span><span class="p">,</span>
-        <span class="p">])</span>
         <span class="k">return</span> <span class="n">filter_and_search_box</span>
-
-
-<span class="k">class</span> <span class="nc">PaperView</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This view is responsible for rendering a paper information.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Args:</span>
-<span class="sd">            - row: a Pandas Series with the paper&#39;s data.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_row</span> <span class="o">=</span> <span class="n">row</span>
-        
-    <span class="k">def</span> <span class="nf">to_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">grid</span> <span class="o">=</span> <span class="n">GridspecLayout</span><span class="p">(</span><span class="n">n_rows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">n_columns</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;space-around&#39;</span><span class="p">,</span> <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">)</span>
-
-        <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;Title:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Authors:&#39;</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">authors</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Date:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">publish_time</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Relevance:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">pagerank</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;URL:&#39;</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;a href=&quot;https://doi.org/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">doi</span><span class="si">}</span><span class="s1">&quot;&gt;https://doi.org/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">doi</span><span class="si">}</span><span class="s1">&lt;/a&gt;&#39;</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;DOI:&#39;</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">doi</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Abstract:&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
-        <span class="n">grid</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">abstract</span><span class="p">))</span>
-
-        <span class="k">return</span> <span class="n">grid</span>
-
     
-<span class="k">class</span> <span class="nc">HtmlPaperView</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">HTMLPaperView</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This view is responsible for rendering a paper information.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -401,13 +514,13 @@ description: "summary"
 <span class="s2">                  &lt;span class=&quot;bottomPair&quot;&gt;</span>
 <span class="s2">                    &lt;span class=&quot;labl&quot;&gt; Country: &lt;/span&gt;</span>
 <span class="s2">                    &lt;span class=&quot;value&quot;&gt;</span>
-<span class="s2">                      </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">country</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                      </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">country</span> <span class="ow">or</span> <span class="s2">&quot;N/A&quot;</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">                    &lt;/span&gt;</span>
 <span class="s2">                  &lt;/span&gt;</span>
 <span class="s2">                  &lt;span class=&quot;bottomPair&quot;&gt;</span>
 <span class="s2">                    &lt;span class=&quot;labl&quot;&gt; Affiliation: &lt;/span&gt;</span>
 <span class="s2">                    &lt;span class=&quot;value&quot;&gt;</span>
-<span class="s2">                      </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">affiliation</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                      </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_row</span><span class="o">.</span><span class="n">affiliation</span> <span class="ow">or</span> <span class="s2">&quot;N/A&quot;</span><span class="si">}</span><span class="s2"></span>
 <span class="s2">                    &lt;/span&gt;</span>
 <span class="s2">                  &lt;/span&gt;</span>
 <span class="s2">                  &lt;span class=&quot;bottomPair&quot;&gt;</span>
@@ -471,15 +584,21 @@ description: "summary"
     <span class="k">def</span> <span class="nf">_render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method performs the view rendering, filtering the papers</span>
-<span class="sd">        by the selected topic and subtopic.</span>
+<span class="sd">        by the selected topic and subtopic, and then by the text query.</span>
 <span class="sd">        It&#39;s able to rerender the component on updates modifying the</span>
 <span class="sd">        parent&#39;s children attribute.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">papers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_papers</span>
+        <span class="c1"># Topic filtering</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topic_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mask</span> <span class="o">=</span> <span class="n">papers</span><span class="p">[</span><span class="s2">&quot;topic&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topic_id</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">papers</span><span class="p">[</span><span class="s2">&quot;subtopic&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic_id</span><span class="p">)</span>
+            <span class="n">papers</span> <span class="o">=</span> <span class="n">papers</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="c1"># Query filtering</span>
+        <span class="n">query_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_query_text</span>
+        <span class="k">if</span> <span class="n">query_text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">query_text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">papers</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">papers</span><span class="p">[</span><span class="s2">&quot;abstract&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">query_text</span><span class="p">)</span>
             <span class="n">papers</span> <span class="o">=</span> <span class="n">papers</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_papers_views</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_papers_views</span><span class="p">(</span><span class="n">papers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_page</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items_per_page</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">to_widget</span><span class="p">(</span><span class="n">papers</span><span class="p">)]</span>
@@ -497,7 +616,7 @@ description: "summary"
         <span class="n">start_idx</span><span class="p">,</span> <span class="n">end_idx</span> <span class="o">=</span> <span class="n">page</span> <span class="o">*</span> <span class="n">items_per_page</span><span class="p">,</span> <span class="p">(</span><span class="n">page</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">items_per_page</span>
         <span class="n">page_subset</span> <span class="o">=</span> <span class="n">papers</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
         <span class="n">counter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">HtmlPaperView</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span> <span class="k">for</span> <span class="n">_index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">page_subset</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">HTMLPaperView</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span> <span class="k">for</span> <span class="n">_index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">page_subset</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
     
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_nav_widgets</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">items_per_page</span><span class="p">,</span> <span class="n">num_items</span><span class="p">,</span> <span class="n">decrement_handler</span><span class="p">,</span> <span class="n">increment_handler</span><span class="p">):</span>
@@ -536,6 +655,7 @@ description: "summary"
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_topic_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">topic_id</span><span class="p">)</span> <span class="k">if</span> <span class="n">topic_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_subtopic_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">subtopic_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">subtopic_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_query_text</span> <span class="o">=</span> <span class="n">text</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_render</span><span class="p">()</span>
         
     <span class="k">def</span> <span class="nf">to_widget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">papers</span><span class="p">):</span>
@@ -545,6 +665,10 @@ description: "summary"
 <span class="sd">        Returns:</span>
 <span class="sd">            - VBox with the view widgets</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">num_results</span> <span class="o">=</span> <span class="n">Box</span><span class="p">([</span>
+            <span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;p class=&#39;filter-label&#39;&gt;</span><span class="si">{</span> <span class="s1">&#39;</span><span class="si">{:,}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">papers</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="si">}</span><span class="s2"> results&lt;/p&gt;&quot;</span><span class="p">)</span>
+        <span class="p">])</span>
+        <span class="n">num_results</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;border-top&quot;</span><span class="p">)</span>
         <span class="n">papers_widgets</span> <span class="o">=</span> <span class="p">[</span><span class="n">view</span><span class="o">.</span><span class="n">to_widget</span><span class="p">()</span> <span class="k">for</span> <span class="n">view</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_papers_views</span><span class="p">]</span>
         <span class="n">nav_widgets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nav_widgets</span><span class="p">(</span>
             <span class="n">page</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_page</span><span class="p">,</span>
@@ -553,7 +677,7 @@ description: "summary"
             <span class="n">decrement_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_decrement_page</span><span class="p">,</span>
             <span class="n">increment_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_increment_page</span>
         <span class="p">)</span>
-        <span class="n">box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">(</span><span class="n">papers_widgets</span> <span class="o">+</span> <span class="p">[</span><span class="n">nav_widgets</span><span class="p">])</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span><span class="n">num_results</span><span class="p">]</span> <span class="o">+</span> <span class="n">papers_widgets</span> <span class="o">+</span> <span class="p">[</span><span class="n">nav_widgets</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">box</span>
 
 <span class="n">paper_set_box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">()</span>

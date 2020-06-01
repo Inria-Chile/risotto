@@ -6,7 +6,7 @@
 ![Python 3.x](https://img.shields.io/badge/python-3.x-green.svg)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Inria-Chile/risotto)
 ![CI](https://github.com/Inria-Chile/risotto/workflows/CI/badge.svg)
-[![License: CeCILL-B](https://img.shields.io/badge/license-CeCILL--B-orange)](https://cecill.info/licences.en.html)
+[![License: CeCILLv2.1](https://img.shields.io/badge/license-CeCILL--v2.1-orange)](https://cecill.info/licences.en.html)
 
 # About RISOTTO
 
