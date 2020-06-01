@@ -11,7 +11,7 @@ services:
       - KAGGLE_USERNAME=${KAGGLE_USERNAME}
       - KAGGLE_KEY=${KAGGLE_KEY}
     ports:
-      - "8000:8000"
+      - "80:80"
     volumes:
       - ./datasets:/usr/src/risotto/datasets/
       - ./artifacts:/usr/src/risotto/artifacts/
