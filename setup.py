@@ -21,7 +21,13 @@ statuses = [ '1 - Planning', '2 - Pre-Alpha', '3 - Alpha',
     '4 - Beta', '5 - Production/Stable', '6 - Mature', '7 - Inactive' ]
 py_versions = '2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8'.split()
 
-requirements = cfg.get('requirements','').split()
+def read_requirements():
+    res = open('requirements.txt').readlines()
+    res = [req for req in res if not req.startswith('https://') and not req.startswith('git+')]
+    return res
+
+requirements = [] + cfg.get('requirements','').split() + read_requirements()
+
 lic = licenses[cfg['license']]
 min_python = cfg['min_python']
 
