@@ -15,6 +15,7 @@ setup_cfg = {o:cfg[o] for o in cfg_keys}
 
 licenses = {
     'apache2': ('Apache Software License 2.0','OSI Approved :: Apache Software License'),
+    'CeCILL2.1': ('CEA CNRS INRIA Logiciel Libre License 2.1','OSI Approved :: CEA CNRS INRIA Logiciel Libre License'),
 }
 statuses = [ '1 - Planning', '2 - Pre-Alpha', '3 - Alpha',
     '4 - Beta', '5 - Production/Stable', '6 - Mature', '7 - Inactive' ]
