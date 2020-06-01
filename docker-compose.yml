@@ -29,5 +29,7 @@ services:
     volumes:
       - ./datasets:/usr/src/risotto/datasets/
       - ./artifacts:/usr/src/risotto/artifacts/
+    ports:
+      - "8080"
     stdin_open: true
     tty: true
