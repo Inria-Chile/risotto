@@ -11,7 +11,9 @@ services:
       - EMAIL=${LETS_ENCRYPT_EMAIL}
       - DOMAIN=${LETS_ENCRYPT_DOMAIN}
       - STAGING=${LETS_ENCRYPT_STAGING}
-      - UPSTREAM="risotto:8080"
+      - UPSTREAM=risotto:8080
+    depends_on:
+      - risotto
     ports:
       - "80:80"
       - "443:443"
