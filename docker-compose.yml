@@ -1,6 +1,21 @@
 version: "3.7"
 
 services:
+  lets-nginx:
+    image: smashwilson/lets-nginx
+    restart: always
+    volumes:
+      - ./lets-nginx/cache:/cache
+      - ./lets-nginx/letsencrypt:/etc/letsencrypt
+    environment:
+      - EMAIL=${LETS_ENCRYPT_EMAIL}
+      - DOMAIN=${LETS_ENCRYPT_DOMAIN}
+      - STAGING=${LETS_ENCRYPT_STAGING}
+      - UPSTREAM="risotto:8080"
+    ports:
+      - "80:80"
+      - "443:443"
+
   risotto:
     container_name: risotto
     build:
@@ -10,8 +25,7 @@ services:
     environment:
       - KAGGLE_USERNAME=${KAGGLE_USERNAME}
       - KAGGLE_KEY=${KAGGLE_KEY}
-    ports:
-      - "80:80"
+      - PORT=8080
     volumes:
       - ./datasets:/usr/src/risotto/datasets/
       - ./artifacts:/usr/src/risotto/artifacts/
