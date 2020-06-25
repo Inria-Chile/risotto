@@ -12,3 +12,4 @@ sklearn
 ipywidgets
 voila
 tables
+BeautifulSoup4
