@@ -1,11 +1,12 @@
 {
   "risotto": {
     "Overview": "/",
-    "Title": "/GUI",
+    "CORD-19 dataset downloader ": "/downloader",
     "Exploring CORD-19 references": "/references",
     "Representations, LDA and topics in CORD-19": "/representations_and_lda",
     "Hierarchical Topic Modeling": "/hierarchical_topic_modelling",
     "Cooking RISOTTO artifacts": "/cook_artifacts",
+    "Title": "/GUI",
     "Ported code!": "/ported_hlda_sampler"
   }
 }

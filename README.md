@@ -2,35 +2,60 @@
 > Research Intelligent Support and Organization TOol against COVID-19 
 
 
-![Fighting against COVID-19](https://img.shields.io/badge/fighting-%F0%9F%A6%A0_COVID--19-9cf)
 ![Python 3.x](https://img.shields.io/badge/python-3.x-green.svg)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Inria-Chile/risotto)
 ![CI](https://github.com/Inria-Chile/risotto/workflows/CI/badge.svg)
+[![Inria](https://img.shields.io/badge/Made%20in-Inria-%23e63312)](http://inria.cl)
+![Fighting against COVID-19](https://img.shields.io/badge/fighting-%F0%9F%A6%A0_COVID--19-9cf)
 [![License: CeCILLv2.1](https://img.shields.io/badge/license-CeCILL--v2.1-orange)](https://cecill.info/licences.en.html)
 
-# About RISOTTO
+## About RISOTTO
 
-The [COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019) research effort is generating a massive amount of information that is reported as research papers. Traditional human-annotated, ontology-based or supervised (tag-based) learning NLP methods are not able to handle the task of supporting research and understanding results adequately.
+The research effort prompted by [COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019) is generating a massive amount of results. These results are mainly reported as research papers. These papers are being disseminated academic journals and conferences, and open-access pre-prints repositories like [medRxiv](), [arXiv](), [bioRxiv](), etc. In parallel, many publishing houses have opened access to their publication catalogs with current and previous publications related to coronaviruses.
+
+The Allen Institute for AI and other collaborating institutions have consolidated the different sources of openly available research papers in the [COVID-19 Open Research Dataset (CORD-19)](https://www.semanticscholar.org/cord19) [1]. From March 2020 to June 2020 CORD-19 has grown from about 28 000 papers to more than 150 000, thus multiplying the number of papers more than five times, as can be appreciated in the subsequent figure.
+
+```
+plot_cord19_papers()
+```
+
+
+![svg](docs/images/output_2_0.svg)
+
+
+Understanding and making the most out of this massive compendium and effort brings different challenges. For instance: 
+- how to make determine what are the research topics? 
+- what are the key reference papers and
+- which ones present novel groundbreaking ideas worthy of attention?
+
+This task is further complicated as many papers are being disseminated as non-peer-reviewed preprints and thus not assessed or sifted through before publication.
+
+Traditional human-curated, ontology-based, or supervised (human tag-based) learning natural language processing (NLP) methods are not able to handle the task of supporting research and understanding results adequately.
 
 So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.
 
-RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to:
+RISOTTO is a research support tool that applies state of the art unsupervised, NLP and ML methods to:
+
 - analyze COVID-19-related research papers freely available online,
-- automatically detect hierarchical groups of these papers and topics,
-- present leading "popular" papers as well as potential breakthroughs and new results, and
+- automatically detect hierarchical groups of these papers and topics applying the lastest topic modeling tools,
+- automatically rank leading or reference papers based on a relevance ranking approach,
+- discover potential breakthroughs and new results that are worthy of further investigation, and
 - provide a visualization tool to understand how is the progress doing what areas are receiving more attention in time, etc.
 
-At the moment, use as input the research papers that have been consolidated as the [CORD-19 dataset](https://www.semanticscholar.org/cord19) by the [Allen Institute for AI](https://allenai.org) and collaborating institutions. [1]
+RISOTTO is being actively developed. You can try it and/or contribute. It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.
 
-**Note:** It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.
+**Web:** https://risotto.inria.cl
+
+**Github repo:** https://github.com/Inria-Chile/risotto
+
 
 ### References
 
 1. Wang, L.L., Lo, K., Chandrasekhar, Y., Reas, R., Yang, J., Eide, D., Funk, K., Kinney, R.M., Liu, Z., Merrill, W., Mooney, P., Murdick, D.A., Rishi, D., Sheehan, J., Shen, Z., Stilson, B., Wade, A.D., Wang, K., Wilhelm, C., Xie, B., Raymond, D.M., Weld, D.S., Etzioni, O., & Kohlmeier, S. (2020). CORD-19: The Covid-19 Open Research Dataset. *ArXiv, [abs/2004.10706.](https://arxiv.org/pdf/2004.10706.pdf)*
 
-# Installing RISOTTO
+## Installing RISOTTO
 
-## Prerequisites
+### Prerequisites
 
 In order to use RISOTTO you will need a [Kaggle](https://www.kaggle.com) username and key.
 
@@ -152,37 +177,40 @@ docker-compose up -d
 docker-compose down -v
 ```
 
-# How to contribute
+## How to contribute
 
-## How to get started
+### How to get started?
 
 Before anything else, please install the `nbdev` git hooks that run automatic scripts during each commit and merge to strip the notebooks of superfluous metadata (and avoid merge conflicts). After cloning the repository, run the following command inside it:
-```
+
+```bash
 nbdev_install_git_hooks
 ```
 
-## Did you find a bug?
+### Did you find a bug?
 
-* Ensure the bug was not already reported by searching on GitHub under Issues.
-* If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
-* Be sure to add the complete error messages.
+- Ensure the bug was not already reported by searching on GitHub under Issues.
+- If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
+- Be sure to add the complete error messages.
 
-#### Did you write a patch that fixes a bug?
+### Did you write a patch that fixes a bug?
 
-* Open a new GitHub pull request with the patch.
-* Ensure that your PR includes a test that fails without your patch, and pass with it.
-* Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
-
-
-## PR submission guidelines
-
-* Keep each PR focused. While it's more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.
-* Do not mix style changes/fixes with "functional" changes. It's very difficult to review such PRs and it most likely get rejected.
-* Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.
-* Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.
-* If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.
+- Open a new GitHub pull request with the patch.
+- Ensure that your PR includes a test that fails without your patch, and pass with it.
+- Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
 
 
-## Do you want to contribute to the documentation?
+### PR submission guidelines
 
-* Docs are automatically created from the notebooks.
+- Keep each PR focused. While it's more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.
+- Do not mix style changes/fixes with "functional" changes. It's very difficult to review such PRs and it most likely get rejected.
+- Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.
+- Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.
+- If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.
+
+
+### Do you want to contribute to the documentation?
+
+- Docs are automatically created from the notebooks.
+
+---

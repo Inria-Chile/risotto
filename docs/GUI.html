@@ -5,8 +5,8 @@ title: Title
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
-description: "summary"
+
+
 ---
 <!--
 
@@ -35,58 +35,70 @@ description: "summary"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.googletagmanager.com/gtag/js?id=UA-168073501-1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
+  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+
+  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-168073501-1&#39;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js&quot;</span> <span class="na">data-cfasync</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">cookieconsent</span><span class="p">.</span><span class="nx">initialise</span><span class="p">({</span>
+  <span class="s2">&quot;palette&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;popup&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;background&quot;</span><span class="o">:</span> <span class="s2">&quot;#000&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;button&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;background&quot;</span><span class="o">:</span> <span class="s2">&quot;#f1d600&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;opt-out&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;href&quot;</span><span class="o">:</span> <span class="s2">&quot;https://github.com/Inria-Chile/risotto/blob/master/COOKIES.md&quot;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+      <span class="nt">font-family</span><span class="o">:</span> <span class="s2">&quot;InriaSans&quot;</span><span class="o">;</span>
+      <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;assets/InriaSans-Regular.ttf&quot;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">);</span>
+    <span class="p">}</span>
+    <span class="nt">body</span> <span class="p">{</span>
+      <span class="k">font-family</span><span class="p">:</span> <span class="s1">&#39;InriaSans&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">jp-Notebook-cell</span> <span class="p">{</span>
+        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nc">jp-Cell-outputWrapper</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="p">}</span>
     <span class="p">.</span><span class="nc">jp-Notebook</span> <span class="p">{</span>
-        <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
         <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="p">.</span><span class="nc">jp-RenderedHTMLCommon</span> <span class="p">{</span>
-        <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">font-family</span><span class="p">:</span> <span class="s1">&#39;InriaSans&#39;</span><span class="p">;</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
         <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="p">.</span><span class="nc">jp-RenderedHTMLCommon</span> <span class="nt">p</span> <span class="p">{</span>
         <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">&gt;</span>
-    <span class="p">.</span><span class="nc">topbar</span> <span class="p">{</span>
-        <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="cp">!important</span><span class="p">;</span>
-        <span class="k">padding</span><span class="p">:</span><span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
-        <span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span> <span class="cp">!important</span><span class="p">;</span>
-        <span class="k">background</span><span class="p">:</span><span class="mh">#e53411</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">.</span><span class="nc">logo</span> <span class="p">{</span>
-        <span class="k">height</span><span class="p">:</span> <span class="mi">25</span><span class="kt">px</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&#39;left&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%;padding:0; overflow: hidden;&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">align</span><span class="o">=</span><span class="s">&#39;left&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%;padding:2em;overflow:hidden;background:#e53411;display:flex;flex-flow:row;align-items:center&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;http://inria.fr&#39;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&#39;left&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:0;padding:2em;background:#e53411;display:flex;flex-flow:row;align-items:center&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;http://inria.fr&#39;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">img</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:50px !important;padding-right:20px;position:relative;border-right:1px solid white;&quot;</span>  <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png&#39;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#39;Inria logo&#39;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#39;Inria logo&#39;</span><span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:2em;color:white;padding-left:20px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://github.com/Inria-Chile/risotto&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:2em;color:white;padding-left:20px;text-decoration: none;&quot;</span><span class="p">&gt;</span>
         RISOTTO
-    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>Risotto in a few words...<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>
-        RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to analyze research papers freely available online.
-    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    
-    
-    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>
-        Risotto sorts the papers by relevance. For more information see our <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>technical report<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.
-    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span> First and second level topics <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-
-    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:0 25px;max-width:1250px&quot;</span><span class="p">&gt;</span>
-    Are selected based on this and thaand allow to specialise the filtering. The most popular words... Yadda yadda. - Something about first level - Something about second level
-    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 
@@ -101,58 +113,69 @@ description: "summary"
 
 
 <div class="output_html rendered_html output_subarea ">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168073501-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168073501-1');
+</script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "content": {
+    "href": "https://github.com/Inria-Chile/risotto/blob/master/COOKIES.md"
+  }
+});
+</script>
+
 <style>
+    @font-face {
+      font-family: "InriaSans";
+      src: url("assets/InriaSans-Regular.ttf") format("truetype");
+    }
+    body {
+      font-family: 'InriaSans';
+    }
+    .jp-Notebook-cell {
+        padding: 0 !important;
+    }
+    .jp-Cell-outputWrapper {
+        margin: 0 !important;
+    }
     .jp-Notebook {
-        width:100% !important;
+        width: 100% !important;
         padding: 0 !important;
     }
     .jp-RenderedHTMLCommon {
-        width:100% !important;
+        font-family: 'InriaSans';
+        width: 100% !important;
         padding: 0 !important;
+        margin: 0 !important;
     }
     .jp-RenderedHTMLCommon p {
         margin: 0;
     }
 </style>
-<style type="text/css">
-    .topbar {
-        width:100% !important;
-        padding:0 !important;
-        overflow:hidden !important;
-        background:#e53411 !important;
-    }
-    .logo {
-        height: 25px !important;
-    }
-</style>
-<div align='left' style="width:100%;padding:0; overflow: hidden;">
-<span align='left' style="width:100%;padding:2em;overflow:hidden;background:#e53411;display:flex;flex-flow:row;align-items:center">
-    <span href='http://inria.fr'>
+<div align='left' style="margin:0;padding:2em;background:#e53411;display:flex;flex-flow:row;align-items:center">
+    <a href='http://inria.fr'>
         <img style="height:50px !important;padding-right:20px;position:relative;border-right:1px solid white;"  src='https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png' alt='Inria logo' title='Inria logo'/>
-    </span>
-    <span style="font-size:2em;color:white;padding-left:20px;">
+    </a>
+    <a href='https://github.com/Inria-Chile/risotto' style="font-size:2em;color:white;padding-left:20px;text-decoration: none;">
         RISOTTO
-    </span>
-</span>
-
-<span>
-    <h1 style="padding:0 25px;max-width:1250px">Risotto in a few words...</h1>
-
-    <p style="padding:0 25px;max-width:1250px">
-        RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to analyze research papers freely available online.
-    </p>
-    
-    
-    <p style="padding:0 25px;max-width:1250px">
-        Risotto sorts the papers by relevance. For more information see our <a href="/">technical report</a>.
-    </p>
-
-    <h2 style="padding:0 25px;max-width:1250px"> First and second level topics </h2>
-
-    <p style="padding:0 25px;max-width:1250px">
-    Are selected based on this and thaand allow to specialise the filtering. The most popular words... Yadda yadda. - Something about first level - Something about second level
-    </p>
-</span>
+    </a>
 </div>
 
 </div>
@@ -318,6 +341,7 @@ description: "summary"
 <span class="s2">                .filter-label {</span>
 <span class="s2">                    font-weight: bold;</span>
 <span class="s2">                    color: #384257;</span>
+<span class="s2">                    margin-bottom: 0;</span>
 <span class="s2">                }</span>
 <span class="s2">                </span>
 <span class="s2">                .filter-button {</span>
@@ -368,6 +392,7 @@ description: "summary"
         <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
             <span class="n">display</span><span class="o">=</span><span class="s2">&quot;flex&quot;</span><span class="p">,</span>
             <span class="n">justify_content</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">margin</span><span class="o">=</span><span class="s2">&quot;15px 0 0 0&quot;</span>
         <span class="p">))</span>
         <span class="n">first_row</span> <span class="o">=</span> <span class="n">HBox</span><span class="p">([</span>
             <span class="n">topics_dropdown</span><span class="p">,</span>
@@ -581,6 +606,10 @@ description: "summary"
         <span class="bp">self</span><span class="o">.</span><span class="n">_page</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_render</span><span class="p">()</span>
     
+    <span class="k">def</span> <span class="nf">_goto_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_page</span> <span class="o">=</span> <span class="n">page</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_render</span><span class="p">()</span>
+    
     <span class="k">def</span> <span class="nf">_render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method performs the view rendering, filtering the papers</span>
@@ -619,7 +648,7 @@ description: "summary"
         <span class="k">return</span> <span class="p">[</span><span class="n">HTMLPaperView</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span> <span class="k">for</span> <span class="n">_index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">page_subset</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
     
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_nav_widgets</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">items_per_page</span><span class="p">,</span> <span class="n">num_items</span><span class="p">,</span> <span class="n">decrement_handler</span><span class="p">,</span> <span class="n">increment_handler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_nav_widgets</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">items_per_page</span><span class="p">,</span> <span class="n">num_items</span><span class="p">,</span> <span class="n">decrement_handler</span><span class="p">,</span> <span class="n">increment_handler</span><span class="p">,</span> <span class="n">goto_handler</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
 <span class="sd">            - page: current page</span>
@@ -629,21 +658,80 @@ description: "summary"
 <span class="sd">                button is clicked</span>
 <span class="sd">            - increment_handler: function that it&#39;s called when the nextpage</span>
 <span class="sd">                button is clicked</span>
+<span class="sd">            - increment_handler: function that it&#39;s called to go to a specific page</span>
 <span class="sd">        Returns:</span>
 <span class="sd">            - HBox with the navigation widgets</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">styles</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            &lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="s2">                .nav-button {</span>
+<span class="s2">                    background-color: #384257;</span>
+<span class="s2">                    color: white;</span>
+<span class="s2">                    font-weight: bold;</span>
+<span class="s2">                    width: 3em;</span>
+<span class="s2">                }</span>
+<span class="s2">                .nav-input {</span>
+<span class="s2">                    width: 5em;</span>
+<span class="s2">                }</span>
+<span class="s2">            &lt;/style&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
         <span class="n">last_page</span> <span class="o">=</span> <span class="n">num_items</span> <span class="o">//</span> <span class="n">items_per_page</span>
-        <span class="n">widgets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nav</span> <span class="o">=</span> <span class="p">[</span><span class="n">styles</span><span class="p">]</span>
+
+        <span class="n">prev_button_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+            <span class="n">decription</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;angle-left&#39;</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Previous page&quot;</span>
+        <span class="p">)</span>
+        <span class="n">prev_button_input</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;nav-button&quot;</span><span class="p">)</span>
+        <span class="n">prev_button_input</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">decrement_handler</span><span class="p">)</span>
+        <span class="n">next_button_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+            <span class="n">decription</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;angle-right&#39;</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Next page&quot;</span>
+        <span class="p">)</span>
+        <span class="n">next_button_input</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;nav-button&quot;</span><span class="p">)</span>
+        <span class="n">next_button_input</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">increment_handler</span><span class="p">)</span>
+        
+        <span class="n">first_button_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+            <span class="n">decription</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;angle-double-left&#39;</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;First page&quot;</span>
+        <span class="p">)</span>
+        <span class="n">first_button_input</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;nav-button&quot;</span><span class="p">)</span>
+        <span class="n">first_button_input</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">goto_handler</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">last_button_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+            <span class="n">decription</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;angle-double-right&#39;</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Last page&quot;</span>
+        <span class="p">)</span>
+        <span class="n">last_button_input</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;nav-button&quot;</span><span class="p">)</span>
+        <span class="n">last_button_input</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">goto_handler</span><span class="p">(</span><span class="n">last_page</span><span class="p">))</span>
+             
+        <span class="n">page_dropdown_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">page</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">last_page</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)],</span>
+        <span class="p">)</span>
+        <span class="n">page_dropdown_input</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;nav-input&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">handle_page_change</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;change&quot;</span> <span class="ow">and</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+                <span class="n">goto_handler</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">page_dropdown_input</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">handle_page_change</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Página anterior&quot;</span><span class="p">)</span>
-            <span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">decrement_handler</span><span class="p">)</span>
-            <span class="n">widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-        <span class="n">widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Página </span><span class="si">{</span><span class="n">page</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> de </span><span class="si">{</span><span class="n">last_page</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">. Mostrando </span><span class="si">{</span><span class="n">items_per_page</span><span class="si">}</span><span class="s2"> elementos por página.&quot;</span><span class="p">))</span>
+            <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first_button_input</span><span class="p">)</span>
+            <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prev_button_input</span><span class="p">)</span>
+
+        <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Page &quot;</span><span class="p">))</span>
+        <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">page_dropdown_input</span><span class="p">)</span>
+        <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; of </span><span class="si">{</span><span class="n">last_page</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+
         <span class="k">if</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="n">last_page</span><span class="p">:</span>
-            <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Página siguiente&quot;</span><span class="p">)</span>
-            <span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">increment_handler</span><span class="p">)</span>
-            <span class="n">widgets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">HBox</span><span class="p">(</span><span class="n">widgets</span><span class="p">)</span>
+            <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_button_input</span><span class="p">)</span>
+            <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_button_input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">HBox</span><span class="p">(</span><span class="n">nav</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="s1">&#39;15px auto 0 auto&#39;</span><span class="p">))</span>
     
     <span class="k">def</span> <span class="nf">on_filter_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic_id</span><span class="p">,</span> <span class="n">subtopic_id</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -675,11 +763,35 @@ description: "summary"
             <span class="n">items_per_page</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_items_per_page</span><span class="p">,</span>
             <span class="n">num_items</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">papers</span><span class="p">),</span>
             <span class="n">decrement_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_decrement_page</span><span class="p">,</span>
-            <span class="n">increment_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_increment_page</span>
+            <span class="n">increment_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_increment_page</span><span class="p">,</span>
+            <span class="n">goto_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_goto_page</span>
         <span class="p">)</span>
         <span class="n">box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span><span class="n">num_results</span><span class="p">]</span> <span class="o">+</span> <span class="n">papers_widgets</span> <span class="o">+</span> <span class="p">[</span><span class="n">nav_widgets</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">box</span>
 
+<span class="n">words_box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">([</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;h1&gt;Risotto in a few words...&lt;/h1&gt;</span>
+
+<span class="s2">    &lt;p&gt;</span>
+<span class="s2">        RISOTTO is a research support tool that applies state of the art unsupervised NLP and ML methods to analyze research papers freely available online.</span>
+<span class="s2">    &lt;/p&gt;</span>
+<span class="s2">    </span>
+<span class="s2">    </span>
+<span class="s2">    &lt;p&gt;</span>
+<span class="s2">        Risotto sorts the papers by relevance. For more information see our &lt;a href=&quot;/&quot;&gt;technical report&lt;/a&gt;.</span>
+<span class="s2">    &lt;/p&gt;</span>
+
+<span class="s2">    &lt;h2&gt; Hierarchical topic modeling &lt;/h2&gt;</span>
+
+<span class="s2">    &lt;p&gt;</span>
+<span class="s2">    RISOTTO automatically models the latent topics in the COVID-19 Open Research Dataset published by Allen AI.</span>
+<span class="s2">    We use a two-step hierarchic topic modeling algorithm in order to build topics and subtopics for each topic.</span>
+<span class="s2">    Each topic and subtopic is represented with an identifier and its top-5 most relevant tokens.</span>
+<span class="s2">    &lt;/p&gt;</span>
+<span class="s2">    &lt;p&gt;</span>
+<span class="s2">    We hope that these topics and subtopics help biomedical researchers to efficiently explore the most recent research advances regarding COVID-19.</span>
+<span class="s2">    &lt;/p&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)])</span>
 <span class="n">paper_set_box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">()</span>
 <span class="n">paper_set_view</span> <span class="o">=</span> <span class="n">PaperSetView</span><span class="p">(</span>
     <span class="n">papers</span><span class="o">=</span><span class="n">papers_artifact</span><span class="p">,</span>
@@ -693,13 +805,62 @@ description: "summary"
     <span class="n">on_filter_handler</span><span class="o">=</span><span class="n">paper_set_view</span><span class="o">.</span><span class="n">on_filter_handler</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span>
+    <span class="n">words_box</span><span class="p">,</span>
     <span class="n">filter_and_search_view</span><span class="o">.</span><span class="n">to_widget</span><span class="p">(),</span>
     <span class="n">paper_set_box</span><span class="p">,</span>
-<span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="s1">&#39;15px&#39;</span><span class="p">))</span>
+<span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;15px&#39;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="s1">&#39;1170px&#39;</span><span class="p">,</span> <span class="n">min_height</span><span class="o">=</span><span class="s1">&#39;calc(100vh - 218px)&#39;</span><span class="p">))</span>
 <span class="n">box</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&#39;left&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:0;padding:2em;background-color:#384257;display:flex;flex-flow:row;align-items:center&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;http://inria.fr&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:40px !important;padding-right:20px;position:relative;border-right:1px solid white;&quot;</span>  <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png&#39;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#39;Inria logo&#39;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#39;Inria logo&#39;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://github.com/Inria-Chile/risotto&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:2em;color:white;padding-left:20px;text-decoration: none;&quot;</span><span class="p">&gt;</span>
+        RISOTTO
+    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<div align='left' style="width:100%;margin:0;padding:2em;overflow:hidden;background-color:#384257;display:flex;flex-flow:row;align-items:center">
+    <a href='http://inria.fr'>
+        <img style="height:40px !important;padding-right:20px;position:relative;border-right:1px solid white;"  src='https://github.com/Inria-Chile/risotto/raw/master/assets/inria-white.png' alt='Inria logo' title='Inria logo'/>
+    </a>
+    <a href='https://github.com/Inria-Chile/risotto' style="font-size:2em;color:white;padding-left:20px;text-decoration: none;">
+        RISOTTO
+    </a>
+</div>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
