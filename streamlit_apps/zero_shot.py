@@ -1,18 +1,22 @@
-import time
+import os
 import sys
+import time
 
 import streamlit as st
 import numpy as np
 
 sys.path.append(".")
 
-from risotto.artifacts import load_papers_artifact, load_papers_embeddings
+from risotto.artifacts import ARTIFACTS_FOLDER_NAME, load_papers_artifact, load_papers_embeddings
 from risotto.zero_shot import cosine_distance_query, get_sentence_transformer
+
+ARTIFACT_NAME = os.environ.get("ARTIFACT_NAME", "zero_shot_artifacts.hdf")
+artifacts_path = os.path.join(ARTIFACTS_FOLDER_NAME, ARTIFACT_NAME)
 
 
 @st.cache
 def get_papers():
-    papers = load_papers_artifact()
+    papers = load_papers_artifact(artifacts_path)
     # Scale PageRank to be in (0, 1) in log scale
     papers["pagerank"] = np.log(papers["pagerank"])
     mean_pagerank = papers["pagerank"].mean()
@@ -22,7 +26,7 @@ def get_papers():
 
 @st.cache
 def get_papers_embeddings():
-    return load_papers_embeddings()
+    return load_papers_embeddings(artifacts_path)
 
 @st.cache(allow_output_mutation=True)
 def get_model():
@@ -88,7 +92,7 @@ for i in range(min(20, len(papers_by_relevance))):
 
 [https://doi.org/{paper.doi}](https://doi.org/{paper.doi})
 
-Cosine similarity: {(1 - paper.distances) * 100:.2f}; PageRank: {paper.pagerank:.2f}
+Cosine similarity: {(1 - paper.distances):.2f}; PageRank: {paper.pagerank:.2f}
 
 ---
 """)
