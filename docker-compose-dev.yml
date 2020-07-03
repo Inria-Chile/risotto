@@ -16,3 +16,17 @@ services:
       - .:/usr/src/risotto
     stdin_open: true
     tty: true
+  
+  zero-shot:
+    container_name: zero-shot-local
+    build:
+      context: .
+      dockerfile: streamlit_apps/Dockerfile
+    image: zero-shot
+    environment:
+      - ARTIFACT_NAME=zero_shot_artifacts.hdf
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/zero-shot
+      - ./models-cache:/root/.cache/torch/

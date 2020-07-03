@@ -119,3 +119,4 @@ checklink/cookies.txt
 datasets/
 *.hdf
 risotto/
+models-cache/

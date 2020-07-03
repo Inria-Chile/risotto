@@ -150,5 +150,7 @@ datasets/**
 !datasets/.gitinclude
 artifacts/**
 !artifacts/.gitinclude
+models-cache/**
+!models-cache/.gitinclude
 *.hdf
 risotto/
