@@ -47,3 +47,4 @@ services:
       - ARTIFACT_NAME=zero_shot_artifacts.hdf
     volumes:
       - ./models-cache:/root/.cache/torch/
+      - ./artifacts:/usr/src/zero-shot/artifacts/
