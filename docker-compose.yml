@@ -2,7 +2,8 @@ version: "3.7"
 
 services:
   lets-nginx:
-    image: smashwilson/lets-nginx
+    build:
+      context: ./nginx
     restart: always
     volumes:
       - ./lets-nginx/cache:/cache
@@ -35,3 +36,14 @@ services:
       - "8080"
     stdin_open: true
     tty: true
+
+  zero-shot:
+    container_name: zero-shot-local
+    build:
+      context: .
+      dockerfile: streamlit_apps/Dockerfile
+    image: zero-shot
+    environment:
+      - ARTIFACT_NAME=zero_shot_artifacts.hdf
+    volumes:
+      - ./models-cache:/root/.cache/torch/
