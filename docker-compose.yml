@@ -2,12 +2,12 @@ version: "3.7"
 
 services:
   lets-nginx:
-    build:
-      context: ./nginx
+    image: smashwilson/lets-nginx
     restart: always
     volumes:
       - ./lets-nginx/cache:/cache
       - ./lets-nginx/letsencrypt:/etc/letsencrypt
+      - ./nginx/risotto.inria.cl.conf:/configs/risotto.inria.cl.conf
     environment:
       - EMAIL=${LETS_ENCRYPT_EMAIL}
       - DOMAIN=${LETS_ENCRYPT_DOMAIN}
