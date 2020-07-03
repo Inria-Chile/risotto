@@ -38,7 +38,7 @@ services:
     tty: true
 
   zero-shot:
-    container_name: zero-shot-local
+    container_name: zero-shot
     build:
       context: .
       dockerfile: streamlit_apps/Dockerfile
