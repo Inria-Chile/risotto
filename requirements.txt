@@ -24,7 +24,7 @@ cymem==2.0.3
 decorator==4.4.2
 defusedxml==0.6.0
 docutils==0.15.2
-en-core-sci-sm==0.2.4
+https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.2.4/en_core_sci_sm-0.2.4.tar.gz
 entrypoints==0.3
 enum-compat==0.0.3
 fastprogress==0.2.3
