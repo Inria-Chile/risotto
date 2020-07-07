@@ -42,9 +42,7 @@ order_criteria = {
 
 # Main widgets
 st.title("RISOTTO")
-query_label = "What do we know about"
-query_text = st.text(f"{query_label} vaccines and therapeutics?")
-st.subheader("Relevant research")
+st.subheader("What do we know about vaccines and therapeutics?")
 
 # Sidebar widgets
 st.sidebar.title("Parameter tuning")
@@ -63,6 +61,9 @@ st.sidebar.button("Search", key="search_sidebar")
 # TODO: add more descriptions
 st.sidebar.markdown("""
 ---
+
+We use a pre-trained [BART model](https://arxiv.org/pdf/1910.13461.pdf) on the [MultiNLI](https://cims.nyu.edu/~sbowman/multinli/) corpus to obtain relevant research from the CORD-19 papers regarding vaccines and therapeutics.
+We pose the problem as a Zero Shot Text Classification task leveraging the Natural Language Inference framework, whereas each paper is a premise and "this paper is about vaccines and therapeutics" is the hypothesis.
 
 This method is inspired by [experiments made at HuggingFace](https://joeddav.github.io/blog/2020/05/29/ZSL.html).
 
