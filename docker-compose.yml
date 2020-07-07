@@ -52,6 +52,7 @@ services:
   nli:
     container_name: nli
     build:
+      context: .
       dockerfile: streamlit_apps/nli/Dockerfile
     image: nli
     command: /usr/src/app/streamlit_apps/nli/run.sh
