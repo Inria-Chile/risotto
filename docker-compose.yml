@@ -41,7 +41,7 @@ services:
     container_name: zero-shot
     build:
       context: .
-      dockerfile: streamlit_apps/Dockerfile
+      dockerfile: streamlit_apps/zero_shot_Dockerfile
     image: zero-shot
     environment:
       - ARTIFACT_NAME=zero_shot_artifacts.hdf
