@@ -62,8 +62,8 @@ st.sidebar.button("Search", key="search_sidebar")
 st.sidebar.markdown("""
 ---
 
-We use a pre-trained [BART model](https://arxiv.org/pdf/1910.13461.pdf) on the [MultiNLI](https://cims.nyu.edu/~sbowman/multinli/) corpus to obtain relevant research from the CORD-19 papers regarding vaccines and therapeutics.
-We pose the problem as a Zero Shot Text Classification task leveraging the Natural Language Inference framework, whereas each paper is a premise and "this paper is about vaccines and therapeutics" is the hypothesis.
+We use a pre-trained [BART model](https://arxiv.org/pdf/1910.13461.pdf) on the [MultiNLI](https://cims.nyu.edu/~sbowman/multinli/) corpus to obtain relevant research from the [CORD-19 papers](https://arxiv.org/abs/2004.10706) regarding vaccines and therapeutics.
+We pose the problem as a [Zero Shot Text Classification](https://www.aclweb.org/anthology/D19-1404/) task leveraging the Natural Language Inference framework, whereas each paper is a premise and "this paper is about vaccines and therapeutics" is the hypothesis.
 
 This method is inspired by [experiments made at HuggingFace](https://joeddav.github.io/blog/2020/05/29/ZSL.html).
 
