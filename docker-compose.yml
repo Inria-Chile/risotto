@@ -48,3 +48,14 @@ services:
     volumes:
       - ./models-cache:/root/.cache/torch/
       - ./artifacts:/usr/src/zero-shot/artifacts/
+  
+  nli:
+    container_name: nli
+    build:
+      dockerfile: streamlit_apps/nli/Dockerfile
+    image: nli
+    command: /usr/src/app/streamlit_apps/nli/run.sh
+    environment:
+      - ARTIFACT_NAME=entailments_artifact.hdf
+    volumes:
+      - ./artifacts:/usr/src/app/artifacts/
