@@ -22,6 +22,9 @@ def get_papers():
     mean_pagerank = papers["pagerank"].mean()
     std_pagerank = papers["pagerank"].std()
     papers["pagerank"] = (papers["pagerank"] - mean_pagerank) / std_pagerank
+    min_pagerank = papers["pagerank"].min()
+    max_pagerank = papers["pagerank"].max()
+    papers["pagerank"] = (papers["pagerank"] - min_pagerank) / (max_pagerank - min_pagerank)
     return papers
 
 @st.cache
