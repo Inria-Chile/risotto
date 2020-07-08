@@ -11,7 +11,9 @@ from risotto.artifacts import ARTIFACTS_FOLDER_NAME, load_papers_artifact
 from risotto.zero_shot import load_entailments_artifact
 
 ARTIFACT_NAME = os.environ.get("ARTIFACT_NAME", "entailments_artifact.hdf")
+BERT_ARTIFACT_NAME = os.environ.get("BERT_ARTIFACT_NAME", "nli_bert_artifacts.hdf")
 artifacts_path = os.path.join(ARTIFACTS_FOLDER_NAME, ARTIFACT_NAME)
+bert_artifact_path = os.path.join(ARTIFACTS_FOLDER_NAME, BERT_ARTIFACT_NAME)
 
 
 @st.cache
@@ -28,12 +30,14 @@ def get_papers():
     return papers
 
 @st.cache
-def get_papers_entailments():
-    return load_entailments_artifact(artifacts_path)
+def get_papers_entailments(artifact_path):
+    return load_entailments_artifact(artifact_path)
 
 
-papers = get_papers()
-papers_entailments = get_papers_entailments()
+models = {
+    "BART": artifacts_path,
+    "BERT": bert_artifact_path,
+}
 
 order_criteria = {
     "Entailment": ("entailments", False),
@@ -46,6 +50,11 @@ st.subheader("What do we know about vaccines and therapeutics?")
 
 # Sidebar widgets
 st.sidebar.title("Parameter tuning")
+
+model_select = st.sidebar.selectbox("Language model:", list(models.keys()))
+
+papers = get_papers()
+papers_entailments = get_papers_entailments(models[model_select])
 
 entailment_threshold = st.sidebar.slider("Entailment threshold:", min_value=0.0, max_value=100.0, value=85.0)
 
@@ -62,7 +71,7 @@ st.sidebar.button("Search", key="search_sidebar")
 st.sidebar.markdown("""
 ---
 
-We use a pre-trained [BART model](https://arxiv.org/pdf/1910.13461.pdf) on the [MultiNLI](https://cims.nyu.edu/~sbowman/multinli/) corpus to obtain relevant research from the [CORD-19 papers](https://arxiv.org/abs/2004.10706) regarding vaccines and therapeutics.
+We use pre-trained models on the [MultiNLI](https://cims.nyu.edu/~sbowman/multinli/) corpus to obtain relevant research from the [CORD-19 papers](https://arxiv.org/abs/2004.10706) regarding vaccines and therapeutics.
 We pose the problem as a [Zero Shot Text Classification](https://www.aclweb.org/anthology/D19-1404/) task leveraging the Natural Language Inference framework, whereas each paper is a premise and "this paper is about vaccines and therapeutics" is the hypothesis.
 
 This method is inspired by [experiments made at HuggingFace](https://joeddav.github.io/blog/2020/05/29/ZSL.html).
