@@ -22,6 +22,9 @@ def get_papers():
     mean_pagerank = papers["pagerank"].mean()
     std_pagerank = papers["pagerank"].std()
     papers["pagerank"] = (papers["pagerank"] - mean_pagerank) / std_pagerank
+    min_pagerank = papers["pagerank"].min()
+    max_pagerank = papers["pagerank"].max()
+    papers["pagerank"] = (papers["pagerank"] - min_pagerank) / (max_pagerank - min_pagerank)
     return papers
 
 @st.cache
@@ -50,9 +53,21 @@ st.button("Search", key="search_main")
 st.subheader("Relevant research")
 
 # Sidebar widgets
+st.sidebar.markdown("""
+<p>
+    <img src="https://raw.githubusercontent.com/Inria-Chile/risotto/master/assets/inria.png" alt="Inria Chile" width="270"/>
+</p>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown("""
+RISOTTO is still in an early stage.
+We expect to deploy RISOTTO 2.0 in the coming days.
+
+---
+""")
 st.sidebar.title("Parameter tuning")
 
-similarity_threshold = st.sidebar.slider("Cosine similarity threshold:", min_value=0.0, max_value=1.0, value=0.5)
+similarity_threshold = st.sidebar.slider("Cosine similarity threshold:", min_value=0.0, max_value=1.0, value=0.65)
 
 min_pagerank = papers["pagerank"].min()
 max_pagerank = papers["pagerank"].max()
