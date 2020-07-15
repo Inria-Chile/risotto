@@ -55,7 +55,7 @@ st.subheader("Relevant research")
 # Sidebar widgets
 st.sidebar.markdown("""
 <p>
-    <img src="https://raw.githubusercontent.com/Inria-Chile/risotto/master/assets/inria-white.png" alt="Inria Chile" width="270"/>
+    <img src="https://raw.githubusercontent.com/Inria-Chile/risotto/master/assets/inria.png" alt="Inria Chile" width="270"/>
 </p>
 """, unsafe_allow_html=True)
 
