@@ -55,7 +55,7 @@ st.subheader("Relevant research")
 # Sidebar widgets
 st.sidebar.title("Parameter tuning")
 
-similarity_threshold = st.sidebar.slider("Cosine similarity threshold:", min_value=0.0, max_value=1.0, value=0.5)
+similarity_threshold = st.sidebar.slider("Cosine similarity threshold:", min_value=0.0, max_value=1.0, value=0.65)
 
 min_pagerank = papers["pagerank"].min()
 max_pagerank = papers["pagerank"].max()
