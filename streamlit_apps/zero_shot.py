@@ -53,6 +53,18 @@ st.button("Search", key="search_main")
 st.subheader("Relevant research")
 
 # Sidebar widgets
+st.sidebar.markdown("""
+<p>
+    <img src="https://raw.githubusercontent.com/Inria-Chile/risotto/master/assets/inria-white.png" alt="Inria Chile" width="270"/>
+</p>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown("""
+RISOTTO is still in an early stage.
+We expect to deploy RISOTTO 2.0 in the coming days.
+
+---
+""")
 st.sidebar.title("Parameter tuning")
 
 similarity_threshold = st.sidebar.slider("Cosine similarity threshold:", min_value=0.0, max_value=1.0, value=0.65)
