@@ -81,8 +81,8 @@ st.sidebar.button("Search", key="search_sidebar")
 st.sidebar.markdown("""
 ---
 
-We use [Sentence-BERT](https://arxiv.org/abs/1908.10084) to embed the [CORD-19](https://arxiv.org/abs/2004.10706) papers and the never-seen-before queries in order to measure the cosine similariry and assess the papers relevance to the question.
-This method is inspired by [experiments made at HuggingFace](https://joeddav.github.io/blog/2020/05/29/ZSL.html).
+We use [Sentence-BERT](https://arxiv.org/abs/1908.10084) to embed the [CORD-19](https://arxiv.org/abs/2004.10706) papers and the never-seen-before queries in order to measure the cosine similarity and assess the papers relevance to the question.
+This method is inspired by [experiments made in HuggingFace](https://joeddav.github.io/blog/2020/05/29/ZSL.html).
 
 For more details, see [this notebook](https://github.com/Inria-Chile/risotto/blob/master/07_ZeroShotTopicClassificationCORD19.ipynb).
 """)
