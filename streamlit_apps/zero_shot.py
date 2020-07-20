@@ -113,4 +113,7 @@ Cosine similarity: {(1 - paper.distances):.2f}; PageRank: {paper.pagerank:.2f}
 """)
 
 if len(papers_by_relevance) == 0:
-    st.write("There aren't relevant papers")
+    st.write("""
+There aren't relevant papers with the current parameter settings.
+We suggest you to try lower threshold values in the parameter tuning sidebar.
+""")
