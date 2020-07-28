@@ -16,7 +16,9 @@ jobs:
     - name: Update library
       run: |
         nbdev_build_lib
-    - name: Update readme and docs
+    - name: Rerun index.ipynb
       run: |
         jupyter nbconvert --to notebook --output index.ipynb --execute index.ipynb
+    - name: Update readme
+      run: |
         nbdev_build_docs
