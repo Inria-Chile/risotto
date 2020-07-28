@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.8'
@@ -16,6 +16,8 @@ jobs:
     - name: Update library
       run: |
         nbdev_build_lib
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
     - name: Rerun index.ipynb
       run: |
         jupyter nbconvert --to notebook --output index.ipynb --execute index.ipynb
