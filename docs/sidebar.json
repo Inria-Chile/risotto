@@ -7,6 +7,8 @@
     "Hierarchical Topic Modeling": "/hierarchical_topic_modelling",
     "Cooking RISOTTO artifacts": "/cook_artifacts",
     "Title": "/GUI",
+    "Zero Shot Topic Classification on CORD-19": "/ZeroShotTopicClassificationCORD19",
+    "Read this!": "/SmallerNLIModels",
     "Ported code!": "/ported_hlda_sampler"
   }
 }

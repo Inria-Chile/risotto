@@ -28,6 +28,12 @@ entries:
       title: Title
       url: /GUI
     - output: web,pdf
+      title: Zero Shot Topic Classification on CORD-19
+      url: /ZeroShotTopicClassificationCORD19
+    - output: web,pdf
+      title: Read this!
+      url: /SmallerNLIModels
+    - output: web,pdf
       title: Ported code!
       url: /ported_hlda_sampler
     output: web

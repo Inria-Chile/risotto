@@ -64,6 +64,23 @@ sidebar: home_sidebar
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -120,8 +137,7 @@ sidebar: home_sidebar
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># skip-test</span>
-<span class="n">download_cord19_dataset</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">download_cord19_dataset</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -143,7 +159,7 @@ Proceeding to download the dataset. This might take a while.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>  0%|          | 1.00M/3.01G [00:00&lt;09:04, 5.94MB/s]</pre>
+<pre>  0%|          | 0.00/4.37G [00:00&lt;?, ?B/s]</pre>
 </div>
 </div>
 
@@ -158,7 +174,7 @@ Proceeding to download the dataset. This might take a while.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 3.01G/3.01G [05:07&lt;00:00, 10.5MB/s]
+<pre>100%|██████████| 4.37G/4.37G [11:30&lt;00:00, 6.79MB/s]
 </pre>
 </div>
 </div>
@@ -174,7 +190,7 @@ Proceeding to download the dataset. This might take a while.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/lmarti/.pyenv/versions/3.8.2/envs/risotto/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3254: DtypeWarning: Columns (13,14) have mixed types.Specify dtype option on import or set low_memory=False.
+<pre>/Users/lmarti/.pyenv/versions/3.8.2/envs/risotto/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3263: DtypeWarning: Columns (1,5,6,13,14,15,16) have mixed types.Specify dtype option on import or set low_memory=False.
   if (await self.run_code(code, result,  async_=asy)):
 </pre>
 </div>
@@ -183,7 +199,7 @@ Proceeding to download the dataset. This might take a while.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Total records loaded: 138794
+<pre>Total records loaded: 187938
 </pre>
 </div>
 </div>

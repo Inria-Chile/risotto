@@ -1,4 +1,4 @@
-# 🍚 RISOTTO
+# 🍚 Risotto
 > Research Intelligent Support and Organization TOol against COVID-19 
 
 
@@ -9,7 +9,7 @@
 ![Fighting against COVID-19](https://img.shields.io/badge/fighting-%F0%9F%A6%A0_COVID--19-9cf)
 [![License: CeCILLv2.1](https://img.shields.io/badge/license-CeCILL--v2.1-orange)](https://cecill.info/licences.en.html)
 
-## About RISOTTO
+## About Risotto
 
 The research effort prompted by [COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019) is generating a massive amount of results. These results are mainly reported as research papers. These papers are being disseminated academic journals and conferences, and open-access pre-prints repositories like [medRxiv](https://www.medrxiv.org/), [arXiv](https://arxiv.org), [bioRxiv](https://www.biorxiv.org/), etc. In parallel, many publishing houses have opened access to their publication catalogs with current and previous publications related to coronaviruses.
 
@@ -34,7 +34,7 @@ Traditional human-curated, ontology-based, or supervised (human tag-based) learn
 
 So far, to the best of our knowledge, there is not a research support tool that exploits the current state of the art of unsupervised learning in NLP that could be used to provide a quick response to this problem.
 
-RISOTTO is a research support tool that applies state of the art unsupervised, NLP and ML methods to:
+Risotto is a research support tool that applies state of the art unsupervised, NLP and ML methods to:
 
 - analyze COVID-19-related research papers freely available online,
 - automatically detect hierarchical groups of these papers and topics applying the lastest topic modeling tools,
@@ -42,7 +42,7 @@ RISOTTO is a research support tool that applies state of the art unsupervised, N
 - discover potential breakthroughs and new results that are worthy of further investigation, and
 - provide a visualization tool to understand how is the progress doing what areas are receiving more attention in time, etc.
 
-RISOTTO is being actively developed. You can try it and/or contribute. It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.
+Risotto is being actively developed. You can try it and/or contribute. It is expected that, as we progress on the conception and development of this tool new tasks/tools will be added to this list.
 
 **Web:** https://risotto.inria.cl
 
@@ -53,11 +53,11 @@ RISOTTO is being actively developed. You can try it and/or contribute. It is exp
 
 1. Wang, L.L., Lo, K., Chandrasekhar, Y., Reas, R., Yang, J., Eide, D., Funk, K., Kinney, R.M., Liu, Z., Merrill, W., Mooney, P., Murdick, D.A., Rishi, D., Sheehan, J., Shen, Z., Stilson, B., Wade, A.D., Wang, K., Wilhelm, C., Xie, B., Raymond, D.M., Weld, D.S., Etzioni, O., & Kohlmeier, S. (2020). CORD-19: The Covid-19 Open Research Dataset. *ArXiv, [abs/2004.10706.](https://arxiv.org/pdf/2004.10706.pdf)*
 
-## Installing RISOTTO
+## Installing Risotto
 
 ### Prerequisites
 
-In order to use RISOTTO you will need a [Kaggle](https://www.kaggle.com) username and key.
+In order to use Risotto you will need a [Kaggle](https://www.kaggle.com) username and key.
 
 ### Get a Kaggle API key
 
@@ -99,9 +99,9 @@ git clone git@github.com:Inria-Chile/risotto.git
 cd risotto
 ```
 
-## How to use RISOTTO locally (without docker)
+## How to use Risotto locally (without docker)
 
-### Build virtual environment with python3 and install requirements
+### Build virtual environment with Python 3.x and install requirements
 
 ```bash
 python -m virtualenv -p python3 venv
@@ -111,7 +111,7 @@ pip install -r requirements.txt
 
 ### Run the build and preprocess scripts
 
-The build script converts the jupyter notebooks to python scripts. The `preprocess.py` script downloads the dataset and builds the artifacts if it is necessary, the `-f` flag forces to re-download and re-build.
+The build script converts the Jupyter notebooks to python scripts. The `preprocess.py` script downloads the dataset and builds the artifacts if it is necessary, the `-f` flag forces to re-download and re-build.
 
 ```bash
 source venv/bin/activate # If you have not sourced the virtual environment already
@@ -128,7 +128,7 @@ source venv/bin/activate # If you have not sourced the virtual environment alrea
 voila --port=8000 --no-browser --enable_nbextensions=True 06_GUI.ipynb
 ```
 
-## How to use RISOTTO with docker
+## How to use Risotto with docker
 
 We provide 2 sets of docker files to serve 2 different purposes: development and production
 
