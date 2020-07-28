@@ -13,9 +13,10 @@ jobs:
       run: |
         pip install nbdev jupyter
         pip install -e .
-    - name: Read all notebooks
+    - name: Update library
       run: |
-        nbdev_read_nbs
+        nbdev_build_lib
     - name: Update readme and docs
       run: |
+        jupyter nbconvert --to notebook --output index.ipynb --execute index.ipynb
         nbdev_build_docs
