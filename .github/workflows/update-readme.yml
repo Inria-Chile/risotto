@@ -1,4 +1,4 @@
-name: CI
+name: Update-Docs
 on: [push, pull_request]
 jobs:
   build:
