@@ -88,7 +88,7 @@ For the sake of efficiency, we iterate over the dataset and precompute the paper
 Then, we compute the cosine distance between the embedded question and each one of the papers representations.
 Finally, the papers might be ordered by their distances to first display those that are relevant to the question.
 
-The script [`streamlit_apps/zero_shot_run.sh`](https://github.com/Inria-Chile/risotto/blob/master/streamlit_apps/zero_shot_run.sh) must be run to serve the Streamlit application.
+The script [`streamlit_apps/zero_shot_run.sh`](https://github.com/Inria-Chile/risotto/blob/master/streamlit_apps/zero_shot_run.sh) must be run to serve the Streamlit prototype.
 
 ### Natural Language Inference Approach
 
@@ -100,7 +100,7 @@ Leveraging the Natural Language Inference task framework, we assess each paper r
 
 Finally, we use the model's entailment inference values as proxy relevance scores for each paper.
 
-The script [`streamlit_apps/nli/run.sh`](https://github.com/Inria-Chile/risotto/blob/master/streamlit_apps/nli/run.sh) must be run to serve the Streamlit application.
+The script [`streamlit_apps/nli/run.sh`](https://github.com/Inria-Chile/risotto/blob/master/streamlit_apps/nli/run.sh) must be run to serve the Streamlit prototype.
 
 ## References
 
