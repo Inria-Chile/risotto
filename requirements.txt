@@ -7,7 +7,7 @@ awscli==1.18.92
 backcall==0.2.0
 base58==2.0.1
 beautifulsoup4==4.9.1
-bleach==3.1.5
+bleach==3.3.0
 blinker==1.4
 blis==0.4.1
 boto3==1.14.15
