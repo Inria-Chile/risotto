@@ -121,7 +121,7 @@ tqdm==4.47.0
 traitlets==4.3.3
 transformers==2.11.0
 tzlocal==2.1
-urllib3==1.25.9
+urllib3==1.26.5
 validators==0.15.0
 voila==0.1.21
 wasabi==0.7.0
