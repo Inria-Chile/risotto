@@ -14,7 +14,7 @@ boto3==1.14.15
 botocore==1.17.15
 cachetools==4.1.1
 catalogue==1.0.0
-certifi==2020.6.20
+certifi==2022.12.7
 chardet==3.0.4
 click==7.1.2
 colorama==0.4.3
