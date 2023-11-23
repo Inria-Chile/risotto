@@ -1,0 +1,6 @@
+[virtualenvs]
+in-project = true
+
+[repositories]
+[repositories.docugami]
+url = "https://classifyprocess.pkgs.visualstudio.com/product/_packaging/docugami/pypi/upload/"
